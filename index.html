@@ -1,0 +1,5713 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Control center</title>
+<style>
+.grid-hero {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.bg-grey {
+	background-color: #efefef;
+	padding: 1rem;
+}
+
+header>h3 {
+	margin: 0;
+	padding: 4rem;
+}
+</style>
+<style type="text/css">
+/*! Spectre.css v0.5.0 | MIT License | github.com/picturepan2/spectre */
+/* Manually forked from Normalize.css */
+/* normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+/** 1. Change the default font family in all browsers (opinionated). 2. Correct the line height in all browsers. 3. Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS. */
+/* Document ========================================================================== */
+html {
+  font-family: sans-serif; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 3 */ 
+  -ms-text-size-adjust: 100%; /* 3 */
+}
+
+/* Sections ========================================================================== */
+/** Remove the margin in all browsers (opinionated). */
+body {
+  margin: 0;
+}
+
+/** Add the correct display in IE 9-. */
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+/** Correct the font size and margin on `h1` elements within `section` and `article` contexts in Chrome, Firefox, and Safari. */
+h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+/* Grouping content ========================================================================== */
+/** Add the correct display in IE 9-. 1. Add the correct display in IE. */
+figcaption,
+figure,
+main {
+  /* 1 */ display: block;
+}
+
+/** Add the correct margin in IE 8 (removed). */
+/** 1. Add the correct box sizing in Firefox. 2. Show the overflow in Edge and IE. */
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/** 1. Correct the inheritance and scaling of font size in all browsers. (removed) 2. Correct the odd `em` font sizing in all browsers. */
+/* Text-level semantics ========================================================================== */
+/** 1. Remove the gray background on active links in IE 10. 2. Remove gaps in links underline in iOS 8+ and Safari 8+. */
+a {
+  background-color: transparent; /* 1 */
+  -webkit-text-decoration-skip: objects; /* 2 */
+}
+
+/** Remove the outline on focused links when they are also active or hovered in all browsers (opinionated). */
+a:active,
+a:hover {
+  outline-width: 0;
+}
+
+/** Modify default styling of address. */
+address {
+  font-style: normal;
+}
+
+/** 1. Remove the bottom border in Firefox 39-. 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari. (removed) */
+/** Prevent the duplicate application of `bolder` by the next rule in Safari 6. */
+b,
+strong {
+  font-weight: inherit;
+}
+
+/** Add the correct font weight in Chrome, Edge, and Safari. */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/** 1. Correct the inheritance and scaling of font size in all browsers. 2. Correct the odd `em` font sizing in all browsers. */
+code,
+kbd,
+pre,
+samp {
+  font-family: "SF Mono", "Segoe UI Mono", "Roboto Mono", Menlo, Courier, monospace; /* 1 (changed) */
+  font-size: 1em; /* 2 */
+}
+
+/** Add the correct font style in Android 4.3-. */
+dfn {
+  font-style: italic;
+}
+
+/** Add the correct background and color in IE 9-. (Removed) */
+/** Add the correct font size in all browsers. */
+small {
+  font-size: 80%;
+  font-weight: 400; /* (added) */
+}
+
+/** Prevent `sub` and `sup` elements from affecting the line height in all browsers. */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+sup {
+  top: -.5em;
+}
+
+/* Embedded content ========================================================================== */
+/** Add the correct display in IE 9-. */
+audio,
+video {
+  display: inline-block;
+}
+
+/** Add the correct display in iOS 4-7. */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/** Remove the border on images inside links in IE 10-. */
+img {
+  border-style: none;
+}
+
+/** Hide the overflow in IE. */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Forms ========================================================================== */
+/** 1. Change the font styles in all browsers (opinionated). 2. Remove the margin in Firefox and Safari. */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 (changed) */
+  font-size: inherit; /* 1 (changed) */
+  line-height: inherit; /* 1 (changed) */
+  margin: 0; /* 2 */
+}
+
+/** Show the overflow in IE. 1. Show the overflow in Edge. */
+button,
+input {
+  /* 1 */ overflow: visible;
+}
+
+/** Remove the inheritance of text transform in Edge, Firefox, and IE. 1. Remove the inheritance of text transform in Firefox. */
+button,
+select {
+  /* 1 */ text-transform: none;
+}
+
+/** 1. Prevent a WebKit bug where (2) destroys native `audio` and `video` controls in Android 4. 2. Correct the inability to style clickable types in iOS and Safari. */
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+}
+
+/** Remove the inner border and padding in Firefox. */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/** Restore the focus styles unset by the previous rule (removed). */
+/** Change the border, margin, and padding in all browsers (opinionated) (changed). */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/** 1. Correct the text wrapping in Edge and IE. 2. Correct the color inheritance from `fieldset` elements in IE. 3. Remove the padding so developers are not caught out when they zero out `fieldset` elements in all browsers. */
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/** 1. Add the correct display in IE 9-. 2. Add the correct vertical alignment in Chrome, Firefox, and Opera. */
+progress {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/** Remove the default vertical scrollbar in IE. */
+textarea {
+  overflow: auto;
+}
+
+/** 1. Add the correct box sizing in IE 10-. 2. Remove the padding in IE 10-. */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/** Correct the cursor style of increment and decrement buttons in Chrome. */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/** 1. Correct the odd appearance in Chrome and Safari. 2. Correct the outline style in Safari. */
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/** Remove the inner padding and cancel buttons in Chrome and Safari on macOS. */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/** 1. Correct the inability to style clickable types in iOS and Safari. 2. Change font properties to `inherit` in Safari. */
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive ========================================================================== */
+/* Add the correct display in IE 9-. 1. Add the correct display in Edge, IE, and Firefox. */
+details,
+menu {
+  display: block;
+}
+
+/* Add the correct display in all browsers. */
+summary {
+  display: list-item;
+  outline: none;
+}
+
+/* Scripting ========================================================================== */
+/** Add the correct display in IE 9-. */
+canvas {
+  display: inline-block;
+}
+
+/** Add the correct display in IE. */
+template {
+  display: none;
+}
+
+/* Hidden ========================================================================== */
+/** Add the correct display in IE 10-. */
+[hidden] {
+  display: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 20px;
+  line-height: 1.5;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: #fff;
+  color: #50596c;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: .8rem;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: #5755d9;
+  outline: none;
+  text-decoration: none;
+}
+
+a:focus {
+  box-shadow: 0 0 0 .1rem rgba(87, 85, 217, .2);
+}
+
+a:focus,
+a:hover,
+a:active,
+a.active {
+  color: #4240d4;
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: .5em;
+  margin-top: 0;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-weight: 500;
+}
+
+h1,
+.h1 {
+  font-size: 2rem;
+}
+
+h2,
+.h2 {
+  font-size: 1.6rem;
+}
+
+h3,
+.h3 {
+  font-size: 1.4rem;
+}
+
+h4,
+.h4 {
+  font-size: 1.2rem;
+}
+
+h5,
+.h5 {
+  font-size: 1rem;
+}
+
+h6,
+.h6 {
+  font-size: .8rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a,
+ins,
+u {
+  -webkit-text-decoration-skip: ink edges;
+  text-decoration-skip: ink edges;
+}
+
+abbr[title] {
+  border-bottom: .05rem dotted;
+  cursor: help;
+  text-decoration: none;
+}
+
+kbd {
+  background: #454d5d;
+  border-radius: .1rem;
+  color: #fff;
+  font-size: .7rem; 
+  line-height: 1.2;
+  padding: .1rem .15rem;
+}
+
+mark {
+  background: #ffe9b3;
+  border-radius: .1rem;
+  color: #50596c;
+  padding: .05rem;
+}
+
+blockquote {
+  border-left: .1rem solid #e7e9ed;
+  margin-left: 0;
+  padding: .4rem .8rem;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  margin: .8rem 0 .8rem .8rem;
+  padding: 0;
+}
+
+ul ul,
+ul ol,
+ol ul,
+ol ol {
+  margin: .8rem 0 .8rem .8rem;
+}
+
+ul li,
+ol li {
+  margin-top: .4rem;
+}
+
+ul {
+  list-style: disc inside;
+}
+
+ul ul {
+  list-style-type: circle;
+}
+
+ol {
+  list-style: decimal inside;
+}
+
+ol ol {
+  list-style-type: lower-alpha;
+}
+
+dl dt {
+  font-weight: bold;
+}
+
+dl dd {
+  margin: .4rem 0 .8rem 0;
+}
+
+:lang(zh) {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+}
+
+:lang(ja) {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Hiragino Kaku Gothic Pro", "Yu Gothic", YuGothic, Meiryo, "Helvetica Neue", sans-serif;
+}
+
+:lang(ko) {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Malgun Gothic", "Helvetica Neue", sans-serif;
+}
+
+:lang(zh) ins,
+:lang(zh) u,
+:lang(ja) ins,
+:lang(ja) u,
+.cjk ins,
+.cjk u {
+  border-bottom: .05rem solid;
+  text-decoration: none;
+}
+
+:lang(zh) del + del,
+:lang(zh) del + s,
+:lang(zh) ins + ins,
+:lang(zh) ins + u,
+:lang(zh) s + del,
+:lang(zh) s + s,
+:lang(zh) u + ins,
+:lang(zh) u + u,
+:lang(ja) del + del,
+:lang(ja) del + s,
+:lang(ja) ins + ins,
+:lang(ja) ins + u,
+:lang(ja) s + del,
+:lang(ja) s + s,
+:lang(ja) u + ins,
+:lang(ja) u + u,
+.cjk del + del,
+.cjk del + s,
+.cjk ins + ins,
+.cjk ins + u,
+.cjk s + del,
+.cjk s + s,
+.cjk u + ins,
+.cjk u + u {
+  margin-left: .125em;
+}
+
+.table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.table.table-striped tbody tr:nth-of-type(odd) {
+  background: #f8f9fa;
+}
+
+.table tbody tr.active,
+.table.table-striped tbody tr.active {
+  background: #f0f1f4;
+}
+
+.table.table-hover tbody tr:hover {
+  background: #f0f1f4;
+}
+
+.table.table-scroll {
+  display: block;
+  overflow-x: auto;
+  padding-bottom: .75rem;
+  white-space: nowrap;
+}
+
+.table td,
+.table th {
+  border-bottom: .05rem solid #e7e9ed;
+  padding: .6rem .4rem;
+}
+
+.table th {
+  border-bottom-width: .1rem;
+}
+
+.btn {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #fff;
+  border: .05rem solid #5755d9;
+  border-radius: .1rem;
+  color: #5755d9;
+  cursor: pointer;
+  display: inline-block;
+  font-size: .8rem;
+  height: 1.8rem;
+  line-height: 1rem;
+  outline: none;
+  padding: .35rem .4rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all .2s ease;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 .1rem rgba(87, 85, 217, .2);
+}
+
+.btn:focus,
+.btn:hover {
+  background: #f1f1fc;
+  border-color: #4b48d6;
+  text-decoration: none;
+}
+
+.btn:active,
+.btn.active {
+  background: #4b48d6;
+  border-color: #3634d2;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn:active.loading::after,
+.btn.active.loading::after {
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+}
+
+.btn[disabled],
+.btn:disabled,
+.btn.disabled {
+  cursor: default;
+  opacity: .5;
+  pointer-events: none;
+}
+
+.btn.btn-primary {
+  background: #5755d9;
+  border-color: #4b48d6;
+  color: #fff;
+}
+
+.btn.btn-primary:focus,
+.btn.btn-primary:hover {
+  background: #4240d4;
+  border-color: #3634d2;
+  color: #fff;
+}
+
+.btn.btn-primary:active,
+.btn.btn-primary.active {
+  background: #3a38d2;
+  border-color: #302ecd;
+  color: #fff;
+}
+
+.btn.btn-primary.loading::after,
+.btn.btn-success.loading::after,
+.btn.btn-error.loading::after {
+  border-bottom-color: #fff;
+  border-left-color: #fff;
+}
+
+.btn.btn-success {
+  background: #32b643;
+  border-color: #2faa3f;
+  color: #fff;
+}
+
+.btn.btn-success:focus {
+  box-shadow: 0 0 0 .1rem rgba(50, 182, 67, .2);
+}
+
+.btn.btn-success:focus,
+.btn.btn-success:hover {
+  background: #30ae40;
+  border-color: #2da23c;
+  color: #fff;
+}
+
+.btn.btn-success:active,
+.btn.btn-success.active {
+  background: #2a9a39;
+  border-color: #278e34;
+  color: #fff;
+}
+
+.btn.btn-error {
+  background: #e85600;
+  border-color: #d95000;
+  color: #fff;
+}
+
+.btn.btn-error:focus {
+  box-shadow: 0 0 0 .1rem rgba(232, 86, 0, .2);
+}
+
+.btn.btn-error:focus,
+.btn.btn-error:hover {
+  background: #de5200;
+  border-color: #cf4d00;
+  color: #fff;
+}
+
+.btn.btn-error:active,
+.btn.btn-error.active {
+  background: #c44900;
+  border-color: #b54300;
+  color: #fff;
+}
+
+.btn.btn-link {
+  background: transparent;
+  border-color: transparent;
+  color: #5755d9;
+}
+
+.btn.btn-link:focus,
+.btn.btn-link:hover,
+.btn.btn-link:active,
+.btn.btn-link.active {
+  color: #4240d4;
+}
+
+.btn.btn-sm {
+  font-size: .7rem;
+  height: 1.4rem;
+  padding: .15rem .3rem;
+}
+
+.btn.btn-lg {
+  font-size: .9rem;
+  height: 2rem;
+  padding: .45rem .6rem;
+}
+
+.btn.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn.btn-action {
+  padding-left: 0;
+  padding-right: 0; 
+  width: 1.8rem;
+}
+
+.btn.btn-action.btn-sm {
+  width: 1.4rem;
+}
+
+.btn.btn-action.btn-lg {
+  width: 2rem;
+}
+
+.btn.btn-clear {
+  background: transparent;
+  border: 0;
+  color: currentColor;
+  height: .8rem;
+  line-height: .8rem;
+  margin-left: .2rem;
+  margin-right: -2px;
+  opacity: 1;
+  padding: 0;
+  text-decoration: none;
+  width: .8rem;
+}
+
+.btn.btn-clear:hover {
+  opacity: .95;
+}
+
+.btn.btn-clear::before {
+  content: "\2715";
+}
+
+.btn-group {
+  display: inline-flex;
+  display: -ms-inline-flexbox;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.btn-group .btn {
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+
+.btn-group .btn:first-child:not(:last-child) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.btn-group .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+  margin-left: -.05rem;
+}
+
+.btn-group .btn:last-child:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  margin-left: -.05rem;
+}
+
+.btn-group .btn:focus,
+.btn-group .btn:hover,
+.btn-group .btn:active,
+.btn-group .btn.active {
+  z-index: 1;
+}
+
+.btn-group.btn-group-block {
+  display: flex; 
+  display: -ms-flexbox;
+}
+
+.btn-group.btn-group-block .btn {
+  -ms-flex: 1 0 0;
+  flex: 1 0 0;
+}
+
+.form-group:not(:last-child) {
+  margin-bottom: .4rem;
+}
+
+fieldset {
+  margin-bottom: .8rem;
+}
+
+legend {
+  font-size: .9rem;
+  font-weight: 500;
+  margin-bottom: .8rem;
+}
+
+.form-label {
+  display: block;
+  line-height: 1rem;
+  padding: .4rem 0;
+}
+
+.form-label.label-sm {
+  font-size: .7rem;
+  padding: .2rem 0;
+}
+
+.form-label.label-lg {
+  font-size: .9rem;
+  padding: .5rem 0;
+}
+
+.form-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #fff;
+  background-image: none;
+  border: .05rem solid #caced7;
+  border-radius: .1rem;
+  color: #50596c;
+  display: block;
+  font-size: .8rem;
+  height: 1.8rem;
+  line-height: 1rem;
+  max-width: 100%;
+  outline: none;
+  padding: .35rem .4rem;
+  position: relative;
+  transition: all .2s ease;
+  width: 100%;
+}
+
+.form-input:focus {
+  border-color: #5755d9; 
+  box-shadow: 0 0 0 .1rem rgba(87, 85, 217, .2);
+}
+
+.form-input::-webkit-input-placeholder {
+  color: #acb3c2;
+}
+
+.form-input:-ms-input-placeholder {
+  color: #acb3c2;
+}
+
+.form-input::placeholder {
+  color: #acb3c2;
+}
+
+.form-input.input-sm {
+  font-size: .7rem;
+  height: 1.4rem;
+  padding: .15rem .3rem;
+}
+
+.form-input.input-lg {
+  font-size: .9rem;
+  height: 2rem;
+  padding: .45rem .6rem;
+}
+
+.form-input.input-inline {
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+}
+
+.form-input[type="file"] {
+  height: auto;
+}
+
+textarea.form-input {
+  height: auto;
+}
+
+.form-input-hint {
+  color: #acb3c2;
+  font-size: .7rem;
+  margin-top: .2rem;
+}
+
+.has-success .form-input-hint,
+.is-success + .form-input-hint {
+  color: #32b643;
+}
+
+.has-error .form-input-hint,
+.is-error + .form-input-hint {
+  color: #e85600;
+}
+
+.form-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: .05rem solid #caced7;
+  border-radius: .1rem;
+  color: inherit;
+  font-size: .8rem;
+  height: 1.8rem;
+  line-height: 1rem;
+  outline: none;
+  padding: .35rem .4rem;
+  vertical-align: middle;
+  width: 100%;
+}
+
+.form-select[size],
+.form-select[multiple] {
+  height: auto;
+}
+
+.form-select[size] option,
+.form-select[multiple] option {
+  padding: .1rem .2rem;
+}
+
+.form-select:not([multiple]):not([size]) {
+  background: #fff url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%204%205'%3E%3Cpath%20fill='%23667189'%20d='M2%200L0%202h4zm0%205L0%203h4z'/%3E%3C/svg%3E") no-repeat right .35rem center/.4rem .5rem;
+  padding-right: 1.2rem;
+}
+
+.form-select:focus {
+  border-color: #5755d9; 
+  box-shadow: 0 0 0 .1rem rgba(87, 85, 217, .2);
+}
+
+.form-select::-ms-expand {
+  display: none;
+}
+
+.form-select.select-sm {
+  font-size: .7rem;
+  height: 1.4rem;
+  padding: .15rem 1.1rem .15rem .3rem;
+}
+
+.form-select.select-lg {
+  font-size: .9rem;
+  height: 2rem;
+  padding: .45rem 1.4rem .45rem .6rem;
+}
+
+.has-icon-left,
+.has-icon-right {
+  position: relative;
+}
+
+.has-icon-left .form-icon,
+.has-icon-right .form-icon {
+  height: .8rem;
+  margin: 0 .35rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: .8rem;
+}
+
+.has-icon-left .form-icon {
+  left: .05rem;
+}
+
+.has-icon-left .form-input {
+  padding-left: 1.5rem;
+}
+
+.has-icon-right .form-icon {
+  right: .05rem;
+}
+
+.has-icon-right .form-input {
+  padding-right: 1.5rem;
+}
+
+.form-checkbox,
+.form-radio,
+.form-switch {
+  display: inline-block;
+  line-height: 1rem;
+  margin: .2rem 0;
+  min-height: 1.2rem;
+  padding: .2rem .4rem .2rem 1.2rem;
+  position: relative;
+}
+
+.form-checkbox input,
+.form-radio input,
+.form-switch input {
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+.form-checkbox input:focus + .form-icon,
+.form-radio input:focus + .form-icon,
+.form-switch input:focus + .form-icon {
+  border-color: #5755d9; 
+  box-shadow: 0 0 0 .1rem rgba(87, 85, 217, .2);
+}
+
+.form-checkbox input:checked + .form-icon,
+.form-radio input:checked + .form-icon,
+.form-switch input:checked + .form-icon {
+  background: #5755d9;
+  border-color: #5755d9;
+}
+
+.form-checkbox .form-icon,
+.form-radio .form-icon,
+.form-switch .form-icon {
+  border: .05rem solid #caced7;
+  cursor: pointer;
+  display: inline-block;
+  position: absolute; 
+  transition: all .2s ease;
+}
+
+.form-checkbox.input-sm,
+.form-radio.input-sm,
+.form-switch.input-sm {
+  font-size: .7rem;
+  margin: 0;
+}
+
+.form-checkbox.input-lg,
+.form-radio.input-lg,
+.form-switch.input-lg {
+  font-size: .9rem;
+  margin: .3rem 0;
+}
+
+.form-checkbox .form-icon,
+.form-radio .form-icon {
+  background: #fff;
+  height: .8rem;
+  left: 0;
+  top: .3rem;
+  width: .8rem;
+}
+
+.form-checkbox input:active + .form-icon,
+.form-radio input:active + .form-icon {
+  background: #f0f1f4;
+}
+
+.form-checkbox .form-icon {
+  border-radius: .1rem;
+}
+
+.form-checkbox input:checked + .form-icon::before {
+  background-clip: padding-box;
+  border: .1rem solid #fff;
+  border-left-width: 0;
+  border-top-width: 0;
+  content: "";
+  height: 12px;
+  left: 50%;
+  margin-left: -4px;
+  margin-top: -8px;
+  position: absolute;
+  top: 50%;
+  transform: rotate(45deg);
+  width: 8px;
+}
+
+.form-checkbox input:indeterminate + .form-icon {
+  background: #5755d9;
+  border-color: #5755d9;
+}
+
+.form-checkbox input:indeterminate + .form-icon::before {
+  background: #fff;
+  content: "";
+  height: 2px;
+  left: 50%;
+  margin-left: -5px;
+  margin-top: -1px;
+  position: absolute;
+  top: 50%;
+  width: 10px;
+}
+
+.form-radio .form-icon {
+  border-radius: 50%;
+}
+
+.form-radio input:checked + .form-icon::before {
+  background: #fff;
+  border-radius: 50%;
+  content: "";
+  height: 4px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+}
+
+.form-switch {
+  padding-left: 2rem;
+}
+
+.form-switch .form-icon {
+  background: #e7e9ed;
+  background-clip: padding-box;
+  border-radius: .45rem;
+  height: .9rem;
+  left: 0;
+  top: .25rem;
+  width: 1.6rem;
+}
+
+.form-switch .form-icon::before {
+  background: #fff;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: .8rem;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: all .2s ease;
+  width: .8rem;
+}
+
+.form-switch input:checked + .form-icon::before {
+  left: 14px;
+}
+
+.form-switch input:active + .form-icon::before {
+  background: #f8f9fa;
+}
+
+.input-group {
+  display: flex; 
+  display: -ms-flexbox;
+}
+
+.input-group .input-group-addon {
+  background: #f8f9fa;
+  border: .05rem solid #caced7;
+  border-radius: .1rem;
+  line-height: 1rem;
+  padding: .35rem .4rem;
+  white-space: nowrap;
+}
+
+.input-group .input-group-addon.addon-sm {
+  font-size: .7rem;
+  padding: .15rem .3rem;
+}
+
+.input-group .input-group-addon.addon-lg {
+  font-size: .9rem;
+  padding: .45rem .6rem;
+}
+
+.input-group .form-input,
+.input-group .form-select {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.input-group .input-group-btn {
+  z-index: 1;
+}
+
+.input-group .form-input:first-child:not(:last-child),
+.input-group .form-select:first-child:not(:last-child),
+.input-group .input-group-addon:first-child:not(:last-child),
+.input-group .input-group-btn:first-child:not(:last-child) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.input-group .form-input:not(:first-child):not(:last-child),
+.input-group .form-select:not(:first-child):not(:last-child),
+.input-group .input-group-addon:not(:first-child):not(:last-child),
+.input-group .input-group-btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+  margin-left: -.05rem;
+}
+
+.input-group .form-input:last-child:not(:first-child),
+.input-group .form-select:last-child:not(:first-child),
+.input-group .input-group-addon:last-child:not(:first-child),
+.input-group .input-group-btn:last-child:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  margin-left: -.05rem;
+}
+
+.input-group .form-input:focus,
+.input-group .form-select:focus,
+.input-group .input-group-addon:focus,
+.input-group .input-group-btn:focus {
+  z-index: 2;
+}
+
+.input-group .form-select {
+  width: auto;
+}
+
+.input-group.input-inline {
+  display: inline-flex; 
+  display: -ms-inline-flexbox;
+}
+
+.has-success .form-input,
+.form-input.is-success,
+.has-success .form-select,
+.form-select.is-success {
+  border-color: #32b643;
+}
+
+.has-success .form-input:focus,
+.form-input.is-success:focus,
+.has-success .form-select:focus,
+.form-select.is-success:focus {
+  box-shadow: 0 0 0 .1rem rgba(50, 182, 67, .2);
+}
+
+.has-error .form-input,
+.form-input.is-error,
+.has-error .form-select,
+.form-select.is-error {
+  border-color: #e85600;
+}
+
+.has-error .form-input:focus,
+.form-input.is-error:focus,
+.has-error .form-select:focus,
+.form-select.is-error:focus {
+  box-shadow: 0 0 0 .1rem rgba(232, 86, 0, .2);
+}
+
+.has-error .form-checkbox .form-icon,
+.form-checkbox.is-error .form-icon,
+.has-error .form-radio .form-icon,
+.form-radio.is-error .form-icon,
+.has-error .form-switch .form-icon,
+.form-switch.is-error .form-icon {
+  border-color: #e85600;
+}
+
+.has-error .form-checkbox input:checked + .form-icon,
+.form-checkbox.is-error input:checked + .form-icon,
+.has-error .form-radio input:checked + .form-icon,
+.form-radio.is-error input:checked + .form-icon,
+.has-error .form-switch input:checked + .form-icon,
+.form-switch.is-error input:checked + .form-icon {
+  background: #e85600;
+  border-color: #e85600;
+}
+
+.has-error .form-checkbox input:focus + .form-icon,
+.form-checkbox.is-error input:focus + .form-icon,
+.has-error .form-radio input:focus + .form-icon,
+.form-radio.is-error input:focus + .form-icon,
+.has-error .form-switch input:focus + .form-icon,
+.form-switch.is-error input:focus + .form-icon {
+  border-color: #e85600; 
+  box-shadow: 0 0 0 .1rem rgba(232, 86, 0, .2);
+}
+
+.form-input:not(:placeholder-shown):invalid {
+  border-color: #e85600;
+}
+
+.form-input:not(:placeholder-shown):invalid:focus {
+  box-shadow: 0 0 0 .1rem rgba(232, 86, 0, .2);
+}
+
+.form-input:not(:placeholder-shown):invalid + .form-input-hint {
+  color: #e85600;
+}
+
+.form-input:disabled,
+.form-input.disabled,
+.form-select:disabled,
+.form-select.disabled {
+  background-color: #f0f1f4;
+  cursor: not-allowed;
+  opacity: .5;
+}
+
+.form-input[readonly] {
+  background-color: #f8f9fa;
+}
+
+input:disabled + .form-icon,
+input.disabled + .form-icon {
+  background: #f0f1f4;
+  cursor: not-allowed;
+  opacity: .5;
+}
+
+.form-switch input:disabled + .form-icon::before,
+.form-switch input.disabled + .form-icon::before {
+  background: #fff;
+}
+
+.form-horizontal {
+  padding: .4rem 0;
+}
+
+.form-horizontal .form-group {
+  display: flex; 
+  display: -ms-flexbox;
+}
+
+.label {
+  background: #f0f1f4;
+  border-radius: .1rem;
+  color: #5b657a;
+  display: inline-block; 
+  line-height: 1.2;
+  padding: .1rem .15rem;
+}
+
+.label.label-rounded {
+  border-radius: 5rem;
+  padding-left: .4rem;
+  padding-right: .4rem;
+}
+
+.label.label-primary {
+  background: #5755d9;
+  color: #fff;
+}
+
+.label.label-secondary {
+  background: #f1f1fc;
+  color: #5755d9;
+}
+
+.label.label-success {
+  background: #32b643;
+  color: #fff;
+}
+
+.label.label-warning {
+  background: #ffb700;
+  color: #fff;
+}
+
+.label.label-error {
+  background: #e85600;
+  color: #fff;
+}
+
+code {
+  background: #fdf4f4;
+  border-radius: .1rem;
+  color: #e06870;
+  font-size: 85%; 
+  line-height: 1.2;
+  padding: .1rem .15rem;
+}
+
+.code {
+  border-radius: .1rem;
+  color: #50596c;
+  position: relative;
+}
+
+.code::before {
+  color: #acb3c2;
+  content: attr(data-lang);
+  font-size: .7rem;
+  position: absolute;
+  right: .4rem;
+  top: .1rem;
+}
+
+.code code {
+  background: #f8f9fa;
+  color: inherit;
+  display: block;
+  line-height: 1.5;
+  overflow-x: auto;
+  padding: 1rem;
+  width: 100%;
+}
+
+.img-responsive {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.img-fit-cover {
+  object-fit: cover;
+}
+
+.img-fit-contain {
+  object-fit: contain;
+}
+
+.video-responsive {
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.video-responsive::before {
+  content: "";
+  display: block;
+  padding-bottom: 56.25%;
+}
+
+.video-responsive iframe,
+.video-responsive object,
+.video-responsive embed {
+  border: 0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+video.video-responsive {
+  height: auto;
+  max-width: 100%;
+}
+
+video.video-responsive::before {
+  content: none;
+}
+
+.video-responsive-4-3::before {
+  padding-bottom: 75%;
+}
+
+.video-responsive-1-1::before {
+  padding-bottom: 100%;
+}
+
+.figure {
+  margin: 0 0 .4rem 0;
+}
+
+.figure .figure-caption {
+  color: #667189;
+  margin-top: .4rem;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: .4rem;
+  padding-right: .4rem;
+  width: 100%;
+}
+
+.container.grid-xl {
+  max-width: 1296px;
+}
+
+.container.grid-lg {
+  max-width: 976px;
+}
+
+.container.grid-md {
+  max-width: 856px;
+}
+
+.container.grid-sm {
+  max-width: 616px;
+}
+
+.container.grid-xs {
+  max-width: 496px;
+}
+
+.show-xs,
+.show-sm,
+.show-md,
+.show-lg,
+.show-xl {
+  display: none !important;
+}
+
+.columns {
+  display: flex;
+  display: -ms-flexbox;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-left: -.4rem;
+  margin-right: -.4rem;
+}
+
+.columns.col-gapless {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.columns.col-gapless > .column {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.columns.col-oneline {
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.column {
+  -ms-flex: 1;
+  flex: 1;
+  max-width: 100%;
+  padding-left: .4rem;
+  padding-right: .4rem;
+}
+
+.column.col-12,
+.column.col-11,
+.column.col-10,
+.column.col-9,
+.column.col-8,
+.column.col-7,
+.column.col-6,
+.column.col-5,
+.column.col-4,
+.column.col-3,
+.column.col-2,
+.column.col-1 {
+  -ms-flex: none;
+  flex: none;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.col-11 {
+  width: 91.66666667%;
+}
+
+.col-10 {
+  width: 83.33333333%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-8 {
+  width: 66.66666667%;
+}
+
+.col-7 {
+  width: 58.33333333%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-5 {
+  width: 41.66666667%;
+}
+
+.col-4 {
+  width: 33.33333333%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-2 {
+  width: 16.66666667%;
+}
+
+.col-1 {
+  width: 8.33333333%;
+}
+
+.col-auto {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  max-width: none;
+  width: auto;
+}
+
+.col-mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.col-ml-auto {
+  margin-left: auto;
+}
+
+.col-mr-auto {
+  margin-right: auto;
+}
+
+@media (max-width: 1280px) {
+  .col-xl-12,
+  .col-xl-11,
+  .col-xl-10,
+  .col-xl-9,
+  .col-xl-8,
+  .col-xl-7,
+  .col-xl-6,
+  .col-xl-5,
+  .col-xl-4,
+  .col-xl-3,
+  .col-xl-2,
+  .col-xl-1 {
+    -ms-flex: none;
+    flex: none;
+  }
+  .col-xl-12 {
+    width: 100%;
+  }
+  .col-xl-11 {
+    width: 91.66666667%;
+  }
+  .col-xl-10 {
+    width: 83.33333333%;
+  }
+  .col-xl-9 {
+    width: 75%;
+  }
+  .col-xl-8 {
+    width: 66.66666667%;
+  }
+  .col-xl-7 {
+    width: 58.33333333%;
+  }
+  .col-xl-6 {
+    width: 50%;
+  }
+  .col-xl-5 {
+    width: 41.66666667%;
+  }
+  .col-xl-4 {
+    width: 33.33333333%;
+  }
+  .col-xl-3 {
+    width: 25%;
+  }
+  .col-xl-2 {
+    width: 16.66666667%;
+  }
+  .col-xl-1 {
+    width: 8.33333333%;
+  }
+  .hide-xl {
+    display: none !important;
+  }
+  .show-xl {
+    display: block !important;
+  }
+}
+
+@media (max-width: 960px) {
+  .col-lg-12,
+  .col-lg-11,
+  .col-lg-10,
+  .col-lg-9,
+  .col-lg-8,
+  .col-lg-7,
+  .col-lg-6,
+  .col-lg-5,
+  .col-lg-4,
+  .col-lg-3,
+  .col-lg-2,
+  .col-lg-1 {
+    -ms-flex: none;
+    flex: none;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
+  .col-lg-11 {
+    width: 91.66666667%;
+  }
+  .col-lg-10 {
+    width: 83.33333333%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  .col-lg-8 {
+    width: 66.66666667%;
+  }
+  .col-lg-7 {
+    width: 58.33333333%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-5 {
+    width: 41.66666667%;
+  }
+  .col-lg-4 {
+    width: 33.33333333%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-2 {
+    width: 16.66666667%;
+  }
+  .col-lg-1 {
+    width: 8.33333333%;
+  }
+  .hide-lg {
+    display: none !important;
+  }
+  .show-lg {
+    display: block !important;
+  }
+}
+
+@media (max-width: 840px) {
+  .col-md-12,
+  .col-md-11,
+  .col-md-10,
+  .col-md-9,
+  .col-md-8,
+  .col-md-7,
+  .col-md-6,
+  .col-md-5,
+  .col-md-4,
+  .col-md-3,
+  .col-md-2,
+  .col-md-1 {
+    -ms-flex: none;
+    flex: none;
+  }
+  .col-md-12 {
+    width: 100%;
+  }
+  .col-md-11 {
+    width: 91.66666667%;
+  }
+  .col-md-10 {
+    width: 83.33333333%;
+  }
+  .col-md-9 {
+    width: 75%;
+  }
+  .col-md-8 {
+    width: 66.66666667%;
+  }
+  .col-md-7 {
+    width: 58.33333333%;
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-5 {
+    width: 41.66666667%;
+  }
+  .col-md-4 {
+    width: 33.33333333%;
+  }
+  .col-md-3 {
+    width: 25%;
+  }
+  .col-md-2 {
+    width: 16.66666667%;
+  }
+  .col-md-1 {
+    width: 8.33333333%;
+  }
+  .hide-md {
+    display: none !important;
+  }
+  .show-md {
+    display: block !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .col-sm-12,
+  .col-sm-11,
+  .col-sm-10,
+  .col-sm-9,
+  .col-sm-8,
+  .col-sm-7,
+  .col-sm-6,
+  .col-sm-5,
+  .col-sm-4,
+  .col-sm-3,
+  .col-sm-2,
+  .col-sm-1 {
+    -ms-flex: none;
+    flex: none;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-sm-11 {
+    width: 91.66666667%;
+  }
+  .col-sm-10 {
+    width: 83.33333333%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-8 {
+    width: 66.66666667%;
+  }
+  .col-sm-7 {
+    width: 58.33333333%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-5 {
+    width: 41.66666667%;
+  }
+  .col-sm-4 {
+    width: 33.33333333%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-2 {
+    width: 16.66666667%;
+  }
+  .col-sm-1 {
+    width: 8.33333333%;
+  }
+  .hide-sm {
+    display: none !important;
+  }
+  .show-sm {
+    display: block !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .col-xs-12,
+  .col-xs-11,
+  .col-xs-10,
+  .col-xs-9,
+  .col-xs-8,
+  .col-xs-7,
+  .col-xs-6,
+  .col-xs-5,
+  .col-xs-4,
+  .col-xs-3,
+  .col-xs-2,
+  .col-xs-1 {
+    -ms-flex: none;
+    flex: none;
+  }
+  .col-xs-12 {
+    width: 100%;
+  }
+  .col-xs-11 {
+    width: 91.66666667%;
+  }
+  .col-xs-10 {
+    width: 83.33333333%;
+  }
+  .col-xs-9 {
+    width: 75%;
+  }
+  .col-xs-8 {
+    width: 66.66666667%;
+  }
+  .col-xs-7 {
+    width: 58.33333333%;
+  }
+  .col-xs-6 {
+    width: 50%;
+  }
+  .col-xs-5 {
+    width: 41.66666667%;
+  }
+  .col-xs-4 {
+    width: 33.33333333%;
+  }
+  .col-xs-3 {
+    width: 25%;
+  }
+  .col-xs-2 {
+    width: 16.66666667%;
+  }
+  .col-xs-1 {
+    width: 8.33333333%;
+  }
+  .hide-xs {
+    display: none !important;
+  }
+  .show-xs {
+    display: block !important;
+  }
+}
+
+.navbar {
+  align-items: stretch;
+  display: flex;
+  display: -ms-flexbox;
+  -ms-flex-align: stretch;
+  -ms-flex-pack: justify;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.navbar .navbar-section {
+  align-items: center;
+  display: flex;
+  display: -ms-flexbox;
+  -ms-flex: 1 0 0;
+  flex: 1 0 0; 
+  -ms-flex-align: center;
+}
+
+.navbar .navbar-section:not(:first-child):last-child {
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.navbar .navbar-center {
+  align-items: center;
+  display: flex;
+  display: -ms-flexbox;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto; 
+  -ms-flex-align: center;
+}
+
+.navbar .navbar-brand {
+  font-size: .9rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.accordion input:checked ~ .accordion-header .icon,
+.accordion[open] .accordion-header .icon {
+  transform: rotate(90deg);
+}
+
+.accordion input:checked ~ .accordion-body,
+.accordion[open] .accordion-body {
+  max-height: 50rem;
+}
+
+.accordion .accordion-header {
+  display: block;
+  padding: .2rem .4rem;
+}
+
+.accordion .accordion-header .icon {
+  transition: all .2s ease;
+}
+
+.accordion .accordion-body {
+  margin-bottom: .4rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .2s ease;
+}
+
+summary.accordion-header::-webkit-details-marker {
+  display: none;
+}
+
+.form-autocomplete {
+  position: relative;
+}
+
+.form-autocomplete .form-autocomplete-input {
+  align-content: flex-start;
+  display: flex;
+  display: -ms-flexbox;
+  -ms-flex-line-pack: start;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  height: auto;
+  min-height: 1.6rem;
+  padding: .1rem;
+}
+
+.form-autocomplete .form-autocomplete-input.is-focused {
+  border-color: #5755d9; 
+  box-shadow: 0 0 0 .1rem rgba(87, 85, 217, .2);
+}
+
+.form-autocomplete .form-autocomplete-input .form-input {
+  border-color: transparent;
+  box-shadow: none;
+  display: inline-block;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  height: 1.2rem;
+  line-height: .8rem;
+  margin: .1rem;
+  width: auto;
+}
+
+.form-autocomplete .menu {
+  left: 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}
+
+.avatar {
+  background: #5755d9;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, .85);
+  display: inline-block;
+  font-size: .8rem;
+  font-weight: 300;
+  height: 1.6rem;
+  line-height: 1.25;
+  margin: 0;
+  position: relative;
+  vertical-align: middle; 
+  width: 1.6rem;
+}
+
+.avatar.avatar-xs {
+  font-size: .4rem;
+  height: .8rem;
+  width: .8rem;
+}
+
+.avatar.avatar-sm {
+  font-size: .6rem;
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
+.avatar.avatar-lg {
+  font-size: 1.2rem;
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.avatar.avatar-xl {
+  font-size: 1.6rem;
+  height: 3.2rem;
+  width: 3.2rem;
+}
+
+.avatar img {
+  border-radius: 50%;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.avatar .avatar-icon,
+.avatar .avatar-presence {
+  background: #fff;
+  bottom: 14.64%;
+  height: 50%;
+  padding: .1rem;
+  position: absolute;
+  right: 14.64%;
+  transform: translate(50%, 50%);
+  width: 50%;
+  z-index: 2;
+}
+
+.avatar .avatar-presence {
+  background: #acb3c2;
+  border-radius: 50%;
+  box-shadow: 0 0 0 .1rem #fff;
+  height: .5em;
+  width: .5em;
+}
+
+.avatar .avatar-presence.online {
+  background: #32b643;
+}
+
+.avatar .avatar-presence.busy {
+  background: #e85600;
+}
+
+.avatar .avatar-presence.away {
+  background: #ffb700;
+}
+
+.avatar[data-initial]::before {
+  color: currentColor;
+  content: attr(data-initial);
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.badge {
+  position: relative;
+  white-space: nowrap;
+}
+
+.badge[data-badge]::after,
+.badge:not([data-badge])::after {
+  background: #5755d9;
+  background-clip: padding-box;
+  border-radius: .5rem;
+  box-shadow: 0 0 0 .1rem #fff;
+  color: #fff;
+  content: attr(data-badge);
+  display: inline-block;
+  transform: translate(-.1rem, -.5rem);
+}
+
+.badge[data-badge]::after {
+  font-size: .7rem;
+  height: .9rem;
+  line-height: 1;
+  min-width: .9rem;
+  padding: .1rem .2rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.badge:not([data-badge])::after,
+.badge[data-badge=""]::after {
+  height: 6px;
+  min-width: 6px;
+  padding: 0;
+  width: 6px;
+}
+
+.badge.btn::after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(50%, -50%);
+}
+
+.badge.avatar::after {
+  position: absolute;
+  right: 14.64%;
+  top: 14.64%;
+  transform: translate(50%, -50%);
+  z-index: 100;
+}
+
+.badge.avatar-xs::after {
+  content: "";
+  height: .4rem;
+  min-width: .4rem;
+  padding: 0;
+  width: .4rem;
+}
+
+.breadcrumb {
+  list-style: none;
+  margin: .2rem 0;
+  padding: .2rem 0;
+}
+
+.breadcrumb .breadcrumb-item {
+  color: #667189;
+  display: inline-block;
+  margin: 0;
+  padding: .2rem 0;
+}
+
+.breadcrumb .breadcrumb-item:not(:last-child) {
+  margin-right: .2rem;
+}
+
+.breadcrumb .breadcrumb-item:not(:last-child) a {
+  color: #667189;
+}
+
+.breadcrumb .breadcrumb-item:not(:first-child)::before {
+  color: #e7e9ed;
+  content: "/";
+  padding-right: .4rem;
+}
+
+.bar {
+  background: #f0f1f4;
+  border-radius: .1rem;
+  display: flex;
+  display: -ms-flexbox;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  height: .8rem;
+  width: 100%;
+}
+
+.bar.bar-sm {
+  height: .2rem;
+}
+
+.bar .bar-item {
+  background: #5755d9;
+  color: #fff;
+  display: block;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  font-size: .7rem;
+  height: 100%;
+  line-height: .8rem;
+  position: relative;
+  text-align: center;
+  width: 0;
+}
+
+.bar .bar-item:first-child {
+  border-bottom-left-radius: .1rem;
+  border-top-left-radius: .1rem;
+}
+
+.bar .bar-item:last-child {
+  border-bottom-right-radius: .1rem;
+  border-top-right-radius: .1rem;
+  -ms-flex-negative: 1;
+  flex-shrink: 1;
+}
+
+.bar-slider {
+  height: .1rem;
+  margin: .4rem 0;
+  position: relative;
+}
+
+.bar-slider .bar-item {
+  left: 0;
+  padding: 0;
+  position: absolute;
+}
+
+.bar-slider .bar-item:not(:last-child):first-child {
+  background: #f0f1f4;
+  z-index: 1;
+}
+
+.bar-slider .bar-slider-btn {
+  background: #5755d9;
+  border: 0;
+  border-radius: 50%;
+  height: .6rem;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%);
+  width: .6rem;
+}
+
+.bar-slider .bar-slider-btn:active {
+  box-shadow: 0 0 0 .1rem #5755d9;
+}
+
+.card {
+  background: #fff;
+  border: .05rem solid #e7e9ed;
+  border-radius: .1rem;
+  display: flex;
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.card .card-header,
+.card .card-body,
+.card .card-footer {
+  padding: .8rem;
+  padding-bottom: 0;
+}
+
+.card .card-header:last-child,
+.card .card-body:last-child,
+.card .card-footer:last-child {
+  padding-bottom: .8rem;
+}
+
+.card .card-image {
+  padding-top: .8rem;
+}
+
+.card .card-image:first-child {
+  padding-top: 0;
+}
+
+.card .card-image:first-child img {
+  border-top-left-radius: .1rem;
+  border-top-right-radius: .1rem;
+}
+
+.card .card-image:last-child img {
+  border-bottom-left-radius: .1rem;
+  border-bottom-right-radius: .1rem;
+}
+
+.chip {
+  align-items: center;
+  background: #f0f1f4;
+  border-radius: 5rem;
+  color: #667189;
+  display: inline-flex;
+  display: -ms-inline-flexbox;
+  -ms-flex-align: center;
+  font-size: 90%;
+  height: 1.2rem;
+  line-height: .8rem;
+  margin: .1rem;
+  max-width: 100%;
+  padding: .2rem .4rem;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.chip.active {
+  background: #5755d9;
+  color: #fff;
+}
+
+.chip .avatar {
+  margin-left: -.4rem;
+  margin-right: .2rem;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown .menu {
+  animation: slide-down .15s ease 1;
+  display: none;
+  left: 0;
+  max-height: 50vh;
+  overflow-y: auto;
+  position: absolute;
+  top: 100%;
+}
+
+.dropdown.dropdown-right .menu {
+  left: auto;
+  right: 0;
+}
+
+.dropdown.active .menu,
+.dropdown .dropdown-toggle:focus + .menu,
+.dropdown .menu:hover {
+  display: block;
+}
+
+.dropdown .btn-group .dropdown-toggle:nth-last-child(2) {
+  border-bottom-right-radius: .1rem;
+  border-top-right-radius: .1rem;
+}
+
+.empty {
+  background: #f8f9fa;
+  border-radius: .1rem;
+  color: #667189;
+  padding: 3.2rem 1.6rem; 
+  text-align: center;
+}
+
+.empty .empty-icon {
+  margin-bottom: .8rem;
+}
+
+.empty .empty-title,
+.empty .empty-subtitle {
+  margin: .4rem auto;
+}
+
+.empty .empty-action {
+  margin-top: .8rem;
+}
+
+.menu {
+  background: #fff;
+  border-radius: .1rem;
+  box-shadow: 0 .05rem .2rem rgba(69, 77, 93, .3);
+  list-style: none;
+  margin: 0;
+  min-width: 180px;
+  padding: .4rem;
+  transform: translateY(.2rem);
+  z-index: 100;
+}
+
+.menu.menu-nav {
+  background: transparent;
+  box-shadow: none;
+}
+
+.menu .menu-item {
+  margin-top: 0;
+  padding: 0 .4rem;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.menu .menu-item > a {
+  border-radius: .1rem;
+  color: inherit;
+  display: block;
+  margin: 0 -.4rem;
+  padding: .2rem .4rem;
+  text-decoration: none;
+}
+
+.menu .menu-item > a:focus,
+.menu .menu-item > a:hover {
+  background: #f1f1fc;
+  color: #5755d9;
+}
+
+.menu .menu-item > a:active,
+.menu .menu-item > a.active {
+  background: #f1f1fc;
+  color: #5755d9;
+}
+
+.menu .menu-item + .menu-item {
+  margin-top: .2rem;
+}
+
+.menu .menu-badge {
+  float: right;
+  padding: .2rem 0;
+}
+
+.menu .menu-badge .btn {
+  margin-top: -.1rem;
+}
+
+.modal {
+  align-items: center;
+  bottom: 0;
+  display: none;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: .4rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.modal:target,
+.modal.active {
+  display: flex;
+  display: -ms-flexbox;
+  opacity: 1;
+  z-index: 400;
+}
+
+.modal:target .modal-overlay,
+.modal.active .modal-overlay {
+  background: rgba(248, 249, 250, .75);
+  bottom: 0;
+  cursor: default;
+  display: block;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.modal:target .modal-container,
+.modal.active .modal-container {
+  animation: slide-down .2s ease 1;
+  max-width: 640px;
+  width: 100%;
+  z-index: 1;
+}
+
+.modal.modal-sm .modal-container {
+  max-width: 320px;
+  padding: 0 .4rem;
+}
+
+.modal.modal-lg .modal-overlay {
+  background: #fff;
+}
+
+.modal.modal-lg .modal-container {
+  box-shadow: none;
+  max-width: 960px;
+}
+
+.modal-container {
+  background: #fff;
+  border-radius: .1rem;
+  box-shadow: 0 .2rem .5rem rgba(69, 77, 93, .3);
+  display: block;
+  padding: 0 .8rem;
+  text-align: left;
+}
+
+.modal-container .modal-header {
+  padding: .8rem;
+}
+
+.modal-container .modal-body {
+  max-height: 50vh;
+  overflow-y: auto;
+  padding: .8rem;
+  position: relative;
+}
+
+.modal-container .modal-footer {
+  padding: .8rem;
+  text-align: right;
+}
+
+.nav {
+  display: flex;
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  list-style: none;
+  margin: .2rem 0;
+}
+
+.nav .nav-item a {
+  color: #667189;
+  padding: .2rem .4rem;
+  text-decoration: none;
+}
+
+.nav .nav-item a:focus,
+.nav .nav-item a:hover {
+  color: #5755d9;
+}
+
+.nav .nav-item.active > a {
+  color: #50596c;
+  font-weight: bold;
+}
+
+.nav .nav-item.active > a:focus,
+.nav .nav-item.active > a:hover {
+  color: #5755d9;
+}
+
+.nav .nav {
+  margin-bottom: .4rem;
+  margin-left: .8rem;
+}
+
+.pagination {
+  display: flex;
+  display: -ms-flexbox;
+  list-style: none;
+  margin: .2rem 0;
+  padding: .2rem 0;
+}
+
+.pagination .page-item {
+  margin: .2rem .05rem;
+}
+
+.pagination .page-item span {
+  display: inline-block;
+  padding: .2rem .2rem;
+}
+
+.pagination .page-item a {
+  border-radius: .1rem;
+  color: #667189;
+  display: inline-block;
+  padding: .2rem .4rem;
+  text-decoration: none;
+}
+
+.pagination .page-item a:focus,
+.pagination .page-item a:hover {
+  color: #5755d9;
+}
+
+.pagination .page-item.disabled a {
+  cursor: default;
+  opacity: .5;
+  pointer-events: none;
+}
+
+.pagination .page-item.active a {
+  background: #5755d9;
+  color: #fff;
+}
+
+.pagination .page-item.page-prev,
+.pagination .page-item.page-next {
+  -ms-flex: 1 0 50%;
+  flex: 1 0 50%;
+}
+
+.pagination .page-item.page-next {
+  text-align: right;
+}
+
+.pagination .page-item .page-item-title {
+  margin: 0;
+}
+
+.pagination .page-item .page-item-subtitle {
+  margin: 0;
+  opacity: .5;
+}
+
+.panel {
+  border: .05rem solid #e7e9ed;
+  border-radius: .1rem;
+  display: flex;
+  display: -ms-flexbox;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.panel .panel-header,
+.panel .panel-footer {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  padding: .8rem;
+}
+
+.panel .panel-nav {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.panel .panel-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 0 .8rem;
+}
+
+.popover {
+  display: inline-block;
+  position: relative;
+}
+
+.popover .popover-container {
+  left: 50%;
+  opacity: 0;
+  padding: .4rem;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform .2s ease;
+  width: 320px;
+  z-index: 400;
+}
+
+.popover *:focus + .popover-container,
+.popover:hover .popover-container,
+.popover .popover-container:hover {
+  display: block;
+  opacity: 1;
+  transform: translate(-50%, -100%) scale(1);
+}
+
+.popover.popover-right .popover-container {
+  left: 100%;
+  top: 50%;
+}
+
+.popover.popover-right :focus + .popover-container,
+.popover.popover-right:hover .popover-container,
+.popover.popover-right .popover-container:hover {
+  transform: translate(0, -50%) scale(1);
+}
+
+.popover.popover-bottom .popover-container {
+  left: 50%;
+  top: 100%;
+}
+
+.popover.popover-bottom :focus + .popover-container,
+.popover.popover-bottom:hover .popover-container,
+.popover.popover-bottom .popover-container:hover {
+  transform: translate(-50%, 0) scale(1);
+}
+
+.popover.popover-left .popover-container {
+  left: 0;
+  top: 50%;
+}
+
+.popover.popover-left :focus + .popover-container,
+.popover.popover-left:hover .popover-container,
+.popover.popover-left .popover-container:hover {
+  transform: translate(-100%, -50%) scale(1);
+}
+
+.popover .card {
+  border: 0; 
+  box-shadow: 0 .2rem .5rem rgba(69, 77, 93, .3);
+}
+
+.step {
+  display: flex;
+  display: -ms-flexbox;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  list-style: none;
+  margin: .2rem 0;
+  width: 100%;
+}
+
+.step .step-item {
+  -ms-flex: 1 1 0;
+  flex: 1 1 0;
+  margin-top: 0;
+  min-height: 1rem;
+  position: relative; 
+  text-align: center;
+}
+
+.step .step-item:not(:first-child)::before {
+  background: #5755d9;
+  content: "";
+  height: 2px;
+  left: -50%;
+  position: absolute;
+  top: 9px;
+  width: 100%;
+}
+
+.step .step-item a {
+  color: #acb3c2;
+  display: inline-block;
+  padding: 20px 10px 0;
+  text-decoration: none;
+}
+
+.step .step-item a::before {
+  background: #5755d9;
+  border: .1rem solid #fff;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: .6rem;
+  left: 50%;
+  position: absolute;
+  top: .2rem;
+  transform: translateX(-50%);
+  width: .6rem;
+  z-index: 1;
+}
+
+.step .step-item.active a::before {
+  background: #fff;
+  border: .1rem solid #5755d9;
+}
+
+.step .step-item.active ~ .step-item::before {
+  background: #e7e9ed;
+}
+
+.step .step-item.active ~ .step-item a::before {
+  background: #e7e9ed;
+}
+
+.tab {
+  align-items: center;
+  border-bottom: .05rem solid #e7e9ed;
+  display: flex;
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: .2rem 0 .15rem 0;
+}
+
+.tab .tab-item {
+  margin-top: 0;
+}
+
+.tab .tab-item a {
+  border-bottom: .1rem solid transparent;
+  color: inherit;
+  display: block;
+  margin: 0 .4rem 0 0;
+  padding: .4rem .2rem .3rem .2rem;
+  text-decoration: none;
+}
+
+.tab .tab-item a:focus,
+.tab .tab-item a:hover {
+  color: #5755d9;
+}
+
+.tab .tab-item.active a,
+.tab .tab-item a.active {
+  border-bottom-color: #5755d9;
+  color: #5755d9;
+}
+
+.tab .tab-item.tab-action {
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  text-align: right;
+}
+
+.tab .tab-item .btn-clear {
+  margin-top: -.2rem;
+}
+
+.tab.tab-block .tab-item {
+  -ms-flex: 1 0 0;
+  flex: 1 0 0;
+  text-align: center;
+}
+
+.tab.tab-block .tab-item a {
+  margin: 0;
+}
+
+.tab.tab-block .tab-item .badge[data-badge]::after {
+  position: absolute;
+  right: .1rem;
+  top: .1rem;
+  transform: translate(0, 0);
+}
+
+.tab:not(.tab-block) .badge {
+  padding-right: 0;
+}
+
+.tile {
+  align-content: space-between;
+  align-items: flex-start;
+  display: flex; 
+  display: -ms-flexbox;
+  -ms-flex-align: start;
+  -ms-flex-line-pack: justify;
+}
+
+.tile .tile-icon,
+.tile .tile-action {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.tile .tile-content {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.tile .tile-content:not(:first-child) {
+  padding-left: .4rem;
+}
+
+.tile .tile-content:not(:last-child) {
+  padding-right: .4rem;
+}
+
+.tile .tile-title,
+.tile .tile-subtitle {
+  line-height: 1rem;
+}
+
+.tile.tile-centered {
+  align-items: center; 
+  -ms-flex-align: center;
+}
+
+.tile.tile-centered .tile-content {
+  overflow: hidden;
+}
+
+.tile.tile-centered .tile-title,
+.tile.tile-centered .tile-subtitle {
+  margin-bottom: 0; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.toast {
+  background: rgba(69, 77, 93, .9);
+  border: .05rem solid #454d5d;
+  border-color: #454d5d;
+  border-radius: .1rem;
+  color: #fff;
+  display: block;
+  padding: .4rem;
+  width: 100%;
+}
+
+.toast.toast-primary {
+  background: rgba(87, 85, 217, .9);
+  border-color: #5755d9;
+}
+
+.toast.toast-success {
+  background: rgba(50, 182, 67, .9);
+  border-color: #32b643;
+}
+
+.toast.toast-warning {
+  background: rgba(255, 183, 0, .9);
+  border-color: #ffb700;
+}
+
+.toast.toast-error {
+  background: rgba(232, 86, 0, .9);
+  border-color: #e85600;
+}
+
+.toast a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.toast a:focus,
+.toast a:hover,
+.toast a:active,
+.toast a.active {
+  opacity: .75;
+}
+
+.toast .btn-clear {
+  margin: 4px -2px 4px 4px;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip::after {
+  background: rgba(69, 77, 93, .9);
+  border-radius: .1rem;
+  bottom: 100%;
+  color: #fff;
+  content: attr(data-tooltip);
+  display: block;
+  font-size: .7rem;
+  left: 50%;
+  max-width: 320px;
+  opacity: 0;
+  overflow: hidden;
+  padding: .2rem .4rem;
+  pointer-events: none;
+  position: absolute;
+  text-overflow: ellipsis;
+  transform: translate(-50%, .4rem);
+  transition: all .2s ease;
+  white-space: pre;
+  z-index: 300;
+}
+
+.tooltip:focus::after,
+.tooltip:hover::after {
+  opacity: 1;
+  transform: translate(-50%, -.2rem);
+}
+
+.tooltip[disabled],
+.tooltip.disabled {
+  pointer-events: auto;
+}
+
+.tooltip.tooltip-right::after {
+  bottom: 50%;
+  left: 100%;
+  transform: translate(-.2rem, 50%);
+}
+
+.tooltip.tooltip-right:focus::after,
+.tooltip.tooltip-right:hover::after {
+  transform: translate(.2rem, 50%);
+}
+
+.tooltip.tooltip-bottom::after {
+  bottom: auto;
+  top: 100%;
+  transform: translate(-50%, -.4rem);
+}
+
+.tooltip.tooltip-bottom:focus::after,
+.tooltip.tooltip-bottom:hover::after {
+  transform: translate(-50%, .2rem);
+}
+
+.tooltip.tooltip-left::after {
+  bottom: 50%;
+  left: auto;
+  right: 100%;
+  transform: translate(.4rem, 50%);
+}
+
+.tooltip.tooltip-left:focus::after,
+.tooltip.tooltip-left:hover::after {
+  transform: translate(-.2rem, 50%);
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-1.6rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-primary {
+  color: #5755d9;
+}
+
+a.text-primary:focus,
+a.text-primary:hover {
+  color: #4240d4;
+}
+
+.text-secondary {
+  color: #e5e5f9;
+}
+
+a.text-secondary:focus,
+a.text-secondary:hover {
+  color: #d1d0f4;
+}
+
+.text-gray {
+  color: #acb3c2;
+}
+
+a.text-gray:focus,
+a.text-gray:hover {
+  color: #9ea6b7;
+}
+
+.text-light {
+  color: #fff;
+}
+
+a.text-light:focus,
+a.text-light:hover {
+  color: #f2f2f2;
+}
+
+.text-success {
+  color: #32b643;
+}
+
+a.text-success:focus,
+a.text-success:hover {
+  color: #2da23c;
+}
+
+.text-warning {
+  color: #ffb700;
+}
+
+a.text-warning:focus,
+a.text-warning:hover {
+  color: #e6a500;
+}
+
+.text-error {
+  color: #e85600;
+}
+
+a.text-error:focus,
+a.text-error:hover {
+  color: #cf4d00;
+}
+
+.bg-primary {
+  background: #5755d9;
+  color: #fff;
+}
+
+.bg-secondary {
+  background: #f1f1fc;
+}
+
+.bg-dark {
+  background: #454d5d;
+  color: #fff;
+}
+
+.bg-gray {
+  background: #f8f9fa;
+}
+
+.bg-success {
+  background: #32b643;
+  color: #fff;
+}
+
+.bg-warning {
+  background: #ffb700;
+  color: #fff;
+}
+
+.bg-error {
+  background: #e85600;
+  color: #fff;
+}
+
+.c-hand {
+  cursor: pointer;
+}
+
+.c-move {
+  cursor: move;
+}
+
+.c-zoom-in {
+  cursor: zoom-in;
+}
+
+.c-zoom-out {
+  cursor: zoom-out;
+}
+
+.c-not-allowed {
+  cursor: not-allowed;
+}
+
+.c-auto {
+  cursor: auto;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-inline {
+  display: inline;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.d-flex {
+  display: flex; 
+  display: -ms-flexbox;
+}
+
+.d-inline-flex {
+  display: inline-flex; 
+  display: -ms-inline-flexbox;
+}
+
+.d-none,
+.d-hide {
+  display: none !important;
+}
+
+.d-visible {
+  visibility: visible;
+}
+
+.d-invisible {
+  visibility: hidden;
+}
+
+.text-hide {
+  background: transparent;
+  border: 0;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+  text-shadow: none;
+}
+
+.text-assistive {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.divider,
+.divider-vert {
+  display: block;
+  position: relative;
+}
+
+.divider[data-content]::after,
+.divider-vert[data-content]::after {
+  background: #fff;
+  color: #acb3c2;
+  content: attr(data-content);
+  display: inline-block;
+  font-size: .7rem;
+  padding: 0 .4rem;
+  transform: translateY(-.65rem);
+}
+
+.divider {
+  border-top: .05rem solid #e7e9ed;
+  height: .05rem;
+  margin: .4rem 0;
+}
+
+.divider[data-content] {
+  margin: .8rem 0;
+}
+
+.divider-vert {
+  display: block;
+  padding: .8rem;
+}
+
+.divider-vert::before {
+  border-left: .05rem solid #e7e9ed;
+  bottom: .4rem;
+  content: "";
+  display: block;
+  left: 50%;
+  position: absolute;
+  top: .4rem;
+  transform: translateX(-50%);
+}
+
+.divider-vert[data-content]::after {
+  left: 50%;
+  padding: .2rem 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loading {
+  color: transparent !important;
+  min-height: .8rem;
+  pointer-events: none;
+  position: relative;
+}
+
+.loading::after {
+  animation: loading 500ms infinite linear;
+  border: .1rem solid #5755d9;
+  border-radius: 50%;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  content: "";
+  display: block;
+  height: .8rem;
+  left: 50%;
+  margin-left: -.4rem;
+  margin-top: -.4rem;
+  position: absolute;
+  top: 50%;
+  width: .8rem;
+  z-index: 1;
+}
+
+.loading.loading-lg {
+  min-height: 2rem;
+}
+
+.loading.loading-lg::after {
+  height: 1.6rem;
+  margin-left: -.8rem;
+  margin-top: -.8rem;
+  width: 1.6rem;
+}
+
+.clearfix::after,
+.container::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.float-left {
+  float: left !important;
+}
+
+.float-right {
+  float: right !important;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.centered {
+  display: block;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flex-centered {
+  align-items: center;
+  display: flex;
+  display: -ms-flexbox;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.ml-0 {
+  margin-left: 0;
+}
+
+.mr-0 {
+  margin-right: 0;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mx-0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.my-0 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.m-1 {
+  margin: .2rem;
+}
+
+.mb-1 {
+  margin-bottom: .2rem;
+}
+
+.ml-1 {
+  margin-left: .2rem;
+}
+
+.mr-1 {
+  margin-right: .2rem;
+}
+
+.mt-1 {
+  margin-top: .2rem;
+}
+
+.mx-1 {
+  margin-left: .2rem;
+  margin-right: .2rem;
+}
+
+.my-1 {
+  margin-bottom: .2rem;
+  margin-top: .2rem;
+}
+
+.m-2 {
+  margin: .4rem;
+}
+
+.mb-2 {
+  margin-bottom: .4rem;
+}
+
+.ml-2 {
+  margin-left: .4rem;
+}
+
+.mr-2 {
+  margin-right: .4rem;
+}
+
+.mt-2 {
+  margin-top: .4rem;
+}
+
+.mx-2 {
+  margin-left: .4rem;
+  margin-right: .4rem;
+}
+
+.my-2 {
+  margin-bottom: .4rem;
+  margin-top: .4rem;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.pb-0 {
+  padding-bottom: 0;
+}
+
+.pl-0 {
+  padding-left: 0;
+}
+
+.pr-0 {
+  padding-right: 0;
+}
+
+.pt-0 {
+  padding-top: 0;
+}
+
+.px-0 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.py-0 {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+.p-1 {
+  padding: .2rem;
+}
+
+.pb-1 {
+  padding-bottom: .2rem;
+}
+
+.pl-1 {
+  padding-left: .2rem;
+}
+
+.pr-1 {
+  padding-right: .2rem;
+}
+
+.pt-1 {
+  padding-top: .2rem;
+}
+
+.px-1 {
+  padding-left: .2rem;
+  padding-right: .2rem;
+}
+
+.py-1 {
+  padding-bottom: .2rem;
+  padding-top: .2rem;
+}
+
+.p-2 {
+  padding: .4rem;
+}
+
+.pb-2 {
+  padding-bottom: .4rem;
+}
+
+.pl-2 {
+  padding-left: .4rem;
+}
+
+.pr-2 {
+  padding-right: .4rem;
+}
+
+.pt-2 {
+  padding-top: .4rem;
+}
+
+.px-2 {
+  padding-left: .4rem;
+  padding-right: .4rem;
+}
+
+.py-2 {
+  padding-bottom: .4rem;
+  padding-top: .4rem;
+}
+
+.rounded {
+  border-radius: .1rem;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-normal {
+  font-weight: normal;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.text-large {
+  font-size: 1.2em;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-clip {
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+.text-break {
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+</style>
+</head>
+<body>
+	<section class="section bg-primary">
+		<section class="grid-hero container grid-480">
+			<header class="text-center">
+				<br>
+				<h2>Control center</h2>
+			</header>
+			<section>
+				<p>Device control or network config.</p>
+			</section>
+		</section>
+	</section>
+	<section class="section">
+		<section class="container grid-480">
+			<header class="text-center">
+				<h4>Device control</h4>
+			</header>
+			<div id="control" class="form-group">
+				<label>Device name:<span id="device_name_show">----</span></label><br>
+			</div>
+
+
+			<div class="form-group">
+				<label class="form-label" for="select-ap">Temprature&Humity:</label>
+				<label style="margin-left: 5%">Temprature:</label><span
+					class="label" id="id_temp">----C</span><br> <label
+					style="margin-left: 5%">Humity:</label><span class="label"
+					id="id_humity">----RH%</span><br>
+
+			</div>
+
+			<div class="form-group">
+				<label class="form-label" for="select-ap">Color:</label> <label
+					style="margin-left: 5%">R:</label><input class="rounded"
+					id="color_r" type="range" min="0" max="1000" value="0" step="50"
+					onchange="pageValueChange()"
+					style="background-color: red; width: 85%"><br><br><label
+					style="margin-left: 5%">G:</label><input class="rounded"
+					id="color_g" type="range" min="0" max="1000" value="0" step="50"
+					onchange="pageValueChange()"
+					style="background-color: green; width: 85%"><br><br><label
+					style="margin-left: 5%">B:</label><input class="rounded"
+					id="color_b" type="range" min="0" max="1000" value="0" step="50"
+					onchange="pageValueChange()"
+					style="background-color: blue; width: 85%"><br>
+				<button type="button" id="btn_color"
+					class="btn btn-primary float-right">Apply setting</button>
+				<br>
+			</div>
+
+			<div class="form-group">
+				<label class="form-label" for="select-ap">Switch:</label> <label
+					class="form-switch" style="margin-left: 5%"> <input
+					type="checkbox" id="checkbox_1" onclick="pageValueChange()"/>
+					<i class="form-icon" onchange="pageValueChange()"></i> <span id="sw_1_name">---</span>
+				</label> <label class="form-switch"  style="margin-left: 5%"> <input
+					type="checkbox" id="checkbox_2" onclick="pageValueChange()"/>
+					<i class="form-icon"></i> <span id="sw_2_name">---</span>
+				</label>
+			</div>
+			<button type="button" id="btn_switch"
+				class="btn btn-primary float-right">Apply setting</button>
+			<br>
+
+
+			</div>
+		</section>
+		<br>
+		<section class="container grid-480">
+			<header class="text-center">
+				<h4>Network config</h4>
+			</header>
+			<form>
+				<div class="form-group">
+				<label>Device name:</label><br>
+				<div class="input-group">
+					<input type="text" id="device_name" class="form-input" value="----"
+						placeholder="Input device name." onchange="pageValueChange()"
+						oninput="pageValueChange()" /><br>
+				</div>
+				<label class="form-label" for="select-ap">Device password:</label>
+				<div class="input-group">
+					<input type="text" id="devicepwd" class="form-input"
+						value="pengping" placeholder="Input device password."
+						onchange="pageValueChange()" oninput="pageValueChange()" />
+				</div>
+				
+				<label class="form-label" for="select-ap">Switch 1 name:</label>
+				<div class="input-group">
+					<input type="text" id="input_switch_1_name" class="form-input"
+						value="----" placeholder="Input switch 1 name."
+						onchange="pageValueChange()" oninput="pageValueChange()" />
+				</div>
+				<label class="form-label" for="select-ap">Switch 2 name:</label>
+				<div class="input-group">
+					<input type="text" id="input_switch_2_name" class="form-input"
+						value="----" placeholder="Input switch 2 name."
+						onchange="pageValueChange()" oninput="pageValueChange()" />
+				</div>
+
+
+					<label class="form-label" for="select-ap">Server IP:</label>
+					<div class="input-group">
+						<input type="text" id="serverip" class="form-input"
+							value="192.168.1.124" placeholder="Input server IP."
+							onchange="pageValueChange()" oninput="pageValueChange()" />
+					</div>
+
+					<label class="form-label" for="set-server-info">WIFI name:</label>
+					<div class="input-group">
+						<input type="text" id="ssid" class="form-input"
+							placeholder="Input or select WIFI SSID." onchange="pageValueChange()"
+							oninput="pageValueChange()" />
+						<button type="button" id="scanap"
+							class="btn btn-primary float-right">Search.. .WIFI</button>
+					</div>
+
+					<label class="form-label" for="input-pwd">WIFI password:</label>
+					<div class="input-group">
+						<input id="input-pwd" class="form-input" type="password"
+							placeholder="Input WIFI password." onchange="pageValueChange()"
+							oninput="pageValueChange()" />
+						<button type="button" id="connect"
+							class="btn btn-primary float-right">Connect WIFI</button>
+					</div>
+				</div>
+			</form>
+		</section>
+		<br>
+		<section class="section bg-primary">
+			<section class="grid-hero container grid-480">
+				<section>
+					<br>
+					<p class="text-center">Powered by pengping.</p>
+				</section>
+			</section>
+		</section>
+	</section>
+	<div id="selectwifi" class="modal">
+		<div class="modal-overlay"></div>
+		<div class="modal-container">
+			<div class="modal-header">
+				<div class="modal-title">Near by WIFI:</div>
+			</div>
+			<div id="aplist" class="modal-body"
+				style="background-color: #66b3ff; min-height: 50px"></div>
+			<br>
+		</div>
+	</div>
+	<script id="item-ap" type="text/html">
+		<div class="chip hand">
+			<svg width="30px" height="20px" class="chip-icon">
+				<path d="M15,20 L0.86,5.86 A20,20 0 0,1 29.14,5.86" fill="#d0d0d0" />
+				<path d="M15,20 L{0},{1} A{2},{2} 0 0,1 {3},{1}" fill="#adadad" />
+			</svg>
+			<span class="chip-content">{4}</span>
+		</div>
+	</script>
+	<!--link href="spectre.min.css" rel="stylesheet" /-->
+	
+	<!--link href="https://cdn.bootcdn.net/ajax/libs/spectre.css/0.5.0/spectre.min.css" rel="stylesheet"/-->
+	
+
+	<!--script src="zepto.min.js"></script--> 
+	<!--script src="https://cdn.bootcdn.net/ajax/libs/zepto/1.1.6/zepto.min.js"/-->
+	
+	
+	<script>
+	/* Zepto v1.1.6 - zepto event ajax form ie - zeptojs.com/license */
+
+var Zepto = (function() {
+  var undefined, key, $, classList, emptyArray = [], slice = emptyArray.slice, filter = emptyArray.filter,
+    document = window.document,
+    elementDisplay = {}, classCache = {},
+    cssNumber = { 'column-count': 1, 'columns': 1, 'font-weight': 1, 'line-height': 1,'opacity': 1, 'z-index': 1, 'zoom': 1 },
+    fragmentRE = /^\s*<(\w+|!)[^>]*>/,
+    singleTagRE = /^<(\w+)\s*\/?>(?:<\/\1>|)$/,
+    tagExpanderRE = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:]+)[^>]*)\/>/ig,
+    rootNodeRE = /^(?:body|html)$/i,
+    capitalRE = /([A-Z])/g,
+
+    // special attributes that should be get/set via method calls
+    methodAttributes = ['val', 'css', 'html', 'text', 'data', 'width', 'height', 'offset'],
+
+    adjacencyOperators = [ 'after', 'prepend', 'before', 'append' ],
+    table = document.createElement('table'),
+    tableRow = document.createElement('tr'),
+    containers = {
+      'tr': document.createElement('tbody'),
+      'tbody': table, 'thead': table, 'tfoot': table,
+      'td': tableRow, 'th': tableRow,
+      '*': document.createElement('div')
+    },
+    readyRE = /complete|loaded|interactive/,
+    simpleSelectorRE = /^[\w-]*$/,
+    class2type = {},
+    toString = class2type.toString,
+    zepto = {},
+    camelize, uniq,
+    tempParent = document.createElement('div'),
+    propMap = {
+      'tabindex': 'tabIndex',
+      'readonly': 'readOnly',
+      'for': 'htmlFor',
+      'class': 'className',
+      'maxlength': 'maxLength',
+      'cellspacing': 'cellSpacing',
+      'cellpadding': 'cellPadding',
+      'rowspan': 'rowSpan',
+      'colspan': 'colSpan',
+      'usemap': 'useMap',
+      'frameborder': 'frameBorder',
+      'contenteditable': 'contentEditable'
+    },
+    isArray = Array.isArray ||
+      function(object){ return object instanceof Array }
+
+  zepto.matches = function(element, selector) {
+    if (!selector || !element || element.nodeType !== 1) return false
+    var matchesSelector = element.webkitMatchesSelector || element.mozMatchesSelector ||
+                          element.oMatchesSelector || element.matchesSelector
+    if (matchesSelector) return matchesSelector.call(element, selector)
+    // fall back to performing a selector:
+    var match, parent = element.parentNode, temp = !parent
+    if (temp) (parent = tempParent).appendChild(element)
+    match = ~zepto.qsa(parent, selector).indexOf(element)
+    temp && tempParent.removeChild(element)
+    return match
+  }
+
+  function type(obj) {
+    return obj == null ? String(obj) :
+      class2type[toString.call(obj)] || "object"
+  }
+
+  function isFunction(value) { return type(value) == "function" }
+  function isWindow(obj)     { return obj != null && obj == obj.window }
+  function isDocument(obj)   { return obj != null && obj.nodeType == obj.DOCUMENT_NODE }
+  function isObject(obj)     { return type(obj) == "object" }
+  function isPlainObject(obj) {
+    return isObject(obj) && !isWindow(obj) && Object.getPrototypeOf(obj) == Object.prototype
+  }
+  function likeArray(obj) { return typeof obj.length == 'number' }
+
+  function compact(array) { return filter.call(array, function(item){ return item != null }) }
+  function flatten(array) { return array.length > 0 ? $.fn.concat.apply([], array) : array }
+  camelize = function(str){ return str.replace(/-+(.)?/g, function(match, chr){ return chr ? chr.toUpperCase() : '' }) }
+  function dasherize(str) {
+    return str.replace(/::/g, '/')
+           .replace(/([A-Z]+)([A-Z][a-z])/g, '$1_$2')
+           .replace(/([a-z\d])([A-Z])/g, '$1_$2')
+           .replace(/_/g, '-')
+           .toLowerCase()
+  }
+  uniq = function(array){ return filter.call(array, function(item, idx){ return array.indexOf(item) == idx }) }
+
+  function classRE(name) {
+    return name in classCache ?
+      classCache[name] : (classCache[name] = new RegExp('(^|\\s)' + name + '(\\s|$)'))
+  }
+
+  function maybeAddPx(name, value) {
+    return (typeof value == "number" && !cssNumber[dasherize(name)]) ? value + "px" : value
+  }
+
+  function defaultDisplay(nodeName) {
+    var element, display
+    if (!elementDisplay[nodeName]) {
+      element = document.createElement(nodeName)
+      document.body.appendChild(element)
+      display = getComputedStyle(element, '').getPropertyValue("display")
+      element.parentNode.removeChild(element)
+      display == "none" && (display = "block")
+      elementDisplay[nodeName] = display
+    }
+    return elementDisplay[nodeName]
+  }
+
+  function children(element) {
+    return 'children' in element ?
+      slice.call(element.children) :
+      $.map(element.childNodes, function(node){ if (node.nodeType == 1) return node })
+  }
+
+  // `$.zepto.fragment` takes a html string and an optional tag name
+  // to generate DOM nodes nodes from the given html string.
+  // The generated DOM nodes are returned as an array.
+  // This function can be overriden in plugins for example to make
+  // it compatible with browsers that don't support the DOM fully.
+  zepto.fragment = function(html, name, properties) {
+    var dom, nodes, container
+
+    // A special case optimization for a single tag
+    if (singleTagRE.test(html)) dom = $(document.createElement(RegExp.$1))
+
+    if (!dom) {
+      if (html.replace) html = html.replace(tagExpanderRE, "<$1></$2>")
+      if (name === undefined) name = fragmentRE.test(html) && RegExp.$1
+      if (!(name in containers)) name = '*'
+
+      container = containers[name]
+      container.innerHTML = '' + html
+      dom = $.each(slice.call(container.childNodes), function(){
+        container.removeChild(this)
+      })
+    }
+
+    if (isPlainObject(properties)) {
+      nodes = $(dom)
+      $.each(properties, function(key, value) {
+        if (methodAttributes.indexOf(key) > -1) nodes[key](value)
+        else nodes.attr(key, value)
+      })
+    }
+
+    return dom
+  }
+
+  // `$.zepto.Z` swaps out the prototype of the given `dom` array
+  // of nodes with `$.fn` and thus supplying all the Zepto functions
+  // to the array. Note that `__proto__` is not supported on Internet
+  // Explorer. This method can be overriden in plugins.
+  zepto.Z = function(dom, selector) {
+    dom = dom || []
+    dom.__proto__ = $.fn
+    dom.selector = selector || ''
+    return dom
+  }
+
+  // `$.zepto.isZ` should return `true` if the given object is a Zepto
+  // collection. This method can be overriden in plugins.
+  zepto.isZ = function(object) {
+    return object instanceof zepto.Z
+  }
+
+  // `$.zepto.init` is Zepto's counterpart to jQuery's `$.fn.init` and
+  // takes a CSS selector and an optional context (and handles various
+  // special cases).
+  // This method can be overriden in plugins.
+  zepto.init = function(selector, context) {
+    var dom
+    // If nothing given, return an empty Zepto collection
+    if (!selector) return zepto.Z()
+    // Optimize for string selectors
+    else if (typeof selector == 'string') {
+      selector = selector.trim()
+      // If it's a html fragment, create nodes from it
+      // Note: In both Chrome 21 and Firefox 15, DOM error 12
+      // is thrown if the fragment doesn't begin with <
+      if (selector[0] == '<' && fragmentRE.test(selector))
+        dom = zepto.fragment(selector, RegExp.$1, context), selector = null
+      // If there's a context, create a collection on that context first, and select
+      // nodes from there
+      else if (context !== undefined) return $(context).find(selector)
+      // If it's a CSS selector, use it to select nodes.
+      else dom = zepto.qsa(document, selector)
+    }
+    // If a function is given, call it when the DOM is ready
+    else if (isFunction(selector)) return $(document).ready(selector)
+    // If a Zepto collection is given, just return it
+    else if (zepto.isZ(selector)) return selector
+    else {
+      // normalize array if an array of nodes is given
+      if (isArray(selector)) dom = compact(selector)
+      // Wrap DOM nodes.
+      else if (isObject(selector))
+        dom = [selector], selector = null
+      // If it's a html fragment, create nodes from it
+      else if (fragmentRE.test(selector))
+        dom = zepto.fragment(selector.trim(), RegExp.$1, context), selector = null
+      // If there's a context, create a collection on that context first, and select
+      // nodes from there
+      else if (context !== undefined) return $(context).find(selector)
+      // And last but no least, if it's a CSS selector, use it to select nodes.
+      else dom = zepto.qsa(document, selector)
+    }
+    // create a new Zepto collection from the nodes found
+    return zepto.Z(dom, selector)
+  }
+
+  // `$` will be the base `Zepto` object. When calling this
+  // function just call `$.zepto.init, which makes the implementation
+  // details of selecting nodes and creating Zepto collections
+  // patchable in plugins.
+  $ = function(selector, context){
+    return zepto.init(selector, context)
+  }
+
+  function extend(target, source, deep) {
+    for (key in source)
+      if (deep && (isPlainObject(source[key]) || isArray(source[key]))) {
+        if (isPlainObject(source[key]) && !isPlainObject(target[key]))
+          target[key] = {}
+        if (isArray(source[key]) && !isArray(target[key]))
+          target[key] = []
+        extend(target[key], source[key], deep)
+      }
+      else if (source[key] !== undefined) target[key] = source[key]
+  }
+
+  // Copy all but undefined properties from one or more
+  // objects to the `target` object.
+  $.extend = function(target){
+    var deep, args = slice.call(arguments, 1)
+    if (typeof target == 'boolean') {
+      deep = target
+      target = args.shift()
+    }
+    args.forEach(function(arg){ extend(target, arg, deep) })
+    return target
+  }
+
+  // `$.zepto.qsa` is Zepto's CSS selector implementation which
+  // uses `document.querySelectorAll` and optimizes for some special cases, like `#id`.
+  // This method can be overriden in plugins.
+  zepto.qsa = function(element, selector){
+    var found,
+        maybeID = selector[0] == '#',
+        maybeClass = !maybeID && selector[0] == '.',
+        nameOnly = maybeID || maybeClass ? selector.slice(1) : selector, // Ensure that a 1 char tag name still gets checked
+        isSimple = simpleSelectorRE.test(nameOnly)
+    return (isDocument(element) && isSimple && maybeID) ?
+      ( (found = element.getElementById(nameOnly)) ? [found] : [] ) :
+      (element.nodeType !== 1 && element.nodeType !== 9) ? [] :
+      slice.call(
+        isSimple && !maybeID ?
+          maybeClass ? element.getElementsByClassName(nameOnly) : // If it's simple, it could be a class
+          element.getElementsByTagName(selector) : // Or a tag
+          element.querySelectorAll(selector) // Or it's not simple, and we need to query all
+      )
+  }
+
+  function filtered(nodes, selector) {
+    return selector == null ? $(nodes) : $(nodes).filter(selector)
+  }
+
+  $.contains = document.documentElement.contains ?
+    function(parent, node) {
+      return parent !== node && parent.contains(node)
+    } :
+    function(parent, node) {
+      while (node && (node = node.parentNode))
+        if (node === parent) return true
+      return false
+    }
+
+  function funcArg(context, arg, idx, payload) {
+    return isFunction(arg) ? arg.call(context, idx, payload) : arg
+  }
+
+  function setAttribute(node, name, value) {
+    value == null ? node.removeAttribute(name) : node.setAttribute(name, value)
+  }
+
+  // access className property while respecting SVGAnimatedString
+  function className(node, value){
+    var klass = node.className || '',
+        svg   = klass && klass.baseVal !== undefined
+
+    if (value === undefined) return svg ? klass.baseVal : klass
+    svg ? (klass.baseVal = value) : (node.className = value)
+  }
+
+  // "true"  => true
+  // "false" => false
+  // "null"  => null
+  // "42"    => 42
+  // "42.5"  => 42.5
+  // "08"    => "08"
+  // JSON    => parse if valid
+  // String  => self
+  function deserializeValue(value) {
+    try {
+      return value ?
+        value == "true" ||
+        ( value == "false" ? false :
+          value == "null" ? null :
+          +value + "" == value ? +value :
+          /^[\[\{]/.test(value) ? $.parseJSON(value) :
+          value )
+        : value
+    } catch(e) {
+      return value
+    }
+  }
+
+  $.type = type
+  $.isFunction = isFunction
+  $.isWindow = isWindow
+  $.isArray = isArray
+  $.isPlainObject = isPlainObject
+
+  $.isEmptyObject = function(obj) {
+    var name
+    for (name in obj) return false
+    return true
+  }
+
+  $.inArray = function(elem, array, i){
+    return emptyArray.indexOf.call(array, elem, i)
+  }
+
+  $.camelCase = camelize
+  $.trim = function(str) {
+    return str == null ? "" : String.prototype.trim.call(str)
+  }
+
+  // plugin compatibility
+  $.uuid = 0
+  $.support = { }
+  $.expr = { }
+
+  $.map = function(elements, callback){
+    var value, values = [], i, key
+    if (likeArray(elements))
+      for (i = 0; i < elements.length; i++) {
+        value = callback(elements[i], i)
+        if (value != null) values.push(value)
+      }
+    else
+      for (key in elements) {
+        value = callback(elements[key], key)
+        if (value != null) values.push(value)
+      }
+    return flatten(values)
+  }
+
+  $.each = function(elements, callback){
+    var i, key
+    if (likeArray(elements)) {
+      for (i = 0; i < elements.length; i++)
+        if (callback.call(elements[i], i, elements[i]) === false) return elements
+    } else {
+      for (key in elements)
+        if (callback.call(elements[key], key, elements[key]) === false) return elements
+    }
+
+    return elements
+  }
+
+  $.grep = function(elements, callback){
+    return filter.call(elements, callback)
+  }
+
+  if (window.JSON) $.parseJSON = JSON.parse
+
+  // Populate the class2type map
+  $.each("Boolean Number String Function Array Date RegExp Object Error".split(" "), function(i, name) {
+    class2type[ "[object " + name + "]" ] = name.toLowerCase()
+  })
+
+  // Define methods that will be available on all
+  // Zepto collections
+  $.fn = {
+    // Because a collection acts like an array
+    // copy over these useful array functions.
+    forEach: emptyArray.forEach,
+    reduce: emptyArray.reduce,
+    push: emptyArray.push,
+    sort: emptyArray.sort,
+    indexOf: emptyArray.indexOf,
+    concat: emptyArray.concat,
+
+    // `map` and `slice` in the jQuery API work differently
+    // from their array counterparts
+    map: function(fn){
+      return $($.map(this, function(el, i){ return fn.call(el, i, el) }))
+    },
+    slice: function(){
+      return $(slice.apply(this, arguments))
+    },
+
+    ready: function(callback){
+      // need to check if document.body exists for IE as that browser reports
+      // document ready when it hasn't yet created the body element
+      if (readyRE.test(document.readyState) && document.body) callback($)
+      else document.addEventListener('DOMContentLoaded', function(){ callback($) }, false)
+      return this
+    },
+    get: function(idx){
+      return idx === undefined ? slice.call(this) : this[idx >= 0 ? idx : idx + this.length]
+    },
+    toArray: function(){ return this.get() },
+    size: function(){
+      return this.length
+    },
+    remove: function(){
+      return this.each(function(){
+        if (this.parentNode != null)
+          this.parentNode.removeChild(this)
+      })
+    },
+    each: function(callback){
+      emptyArray.every.call(this, function(el, idx){
+        return callback.call(el, idx, el) !== false
+      })
+      return this
+    },
+    filter: function(selector){
+      if (isFunction(selector)) return this.not(this.not(selector))
+      return $(filter.call(this, function(element){
+        return zepto.matches(element, selector)
+      }))
+    },
+    add: function(selector,context){
+      return $(uniq(this.concat($(selector,context))))
+    },
+    is: function(selector){
+      return this.length > 0 && zepto.matches(this[0], selector)
+    },
+    not: function(selector){
+      var nodes=[]
+      if (isFunction(selector) && selector.call !== undefined)
+        this.each(function(idx){
+          if (!selector.call(this,idx)) nodes.push(this)
+        })
+      else {
+        var excludes = typeof selector == 'string' ? this.filter(selector) :
+          (likeArray(selector) && isFunction(selector.item)) ? slice.call(selector) : $(selector)
+        this.forEach(function(el){
+          if (excludes.indexOf(el) < 0) nodes.push(el)
+        })
+      }
+      return $(nodes)
+    },
+    has: function(selector){
+      return this.filter(function(){
+        return isObject(selector) ?
+          $.contains(this, selector) :
+          $(this).find(selector).size()
+      })
+    },
+    eq: function(idx){
+      return idx === -1 ? this.slice(idx) : this.slice(idx, + idx + 1)
+    },
+    first: function(){
+      var el = this[0]
+      return el && !isObject(el) ? el : $(el)
+    },
+    last: function(){
+      var el = this[this.length - 1]
+      return el && !isObject(el) ? el : $(el)
+    },
+    find: function(selector){
+      var result, $this = this
+      if (!selector) result = $()
+      else if (typeof selector == 'object')
+        result = $(selector).filter(function(){
+          var node = this
+          return emptyArray.some.call($this, function(parent){
+            return $.contains(parent, node)
+          })
+        })
+      else if (this.length == 1) result = $(zepto.qsa(this[0], selector))
+      else result = this.map(function(){ return zepto.qsa(this, selector) })
+      return result
+    },
+    closest: function(selector, context){
+      var node = this[0], collection = false
+      if (typeof selector == 'object') collection = $(selector)
+      while (node && !(collection ? collection.indexOf(node) >= 0 : zepto.matches(node, selector)))
+        node = node !== context && !isDocument(node) && node.parentNode
+      return $(node)
+    },
+    parents: function(selector){
+      var ancestors = [], nodes = this
+      while (nodes.length > 0)
+        nodes = $.map(nodes, function(node){
+          if ((node = node.parentNode) && !isDocument(node) && ancestors.indexOf(node) < 0) {
+            ancestors.push(node)
+            return node
+          }
+        })
+      return filtered(ancestors, selector)
+    },
+    parent: function(selector){
+      return filtered(uniq(this.pluck('parentNode')), selector)
+    },
+    children: function(selector){
+      return filtered(this.map(function(){ return children(this) }), selector)
+    },
+    contents: function() {
+      return this.map(function() { return slice.call(this.childNodes) })
+    },
+    siblings: function(selector){
+      return filtered(this.map(function(i, el){
+        return filter.call(children(el.parentNode), function(child){ return child!==el })
+      }), selector)
+    },
+    empty: function(){
+      return this.each(function(){ this.innerHTML = '' })
+    },
+    // `pluck` is borrowed from Prototype.js
+    pluck: function(property){
+      return $.map(this, function(el){ return el[property] })
+    },
+    show: function(){
+      return this.each(function(){
+        this.style.display == "none" && (this.style.display = '')
+        if (getComputedStyle(this, '').getPropertyValue("display") == "none")
+          this.style.display = defaultDisplay(this.nodeName)
+      })
+    },
+    replaceWith: function(newContent){
+      return this.before(newContent).remove()
+    },
+    wrap: function(structure){
+      var func = isFunction(structure)
+      if (this[0] && !func)
+        var dom   = $(structure).get(0),
+            clone = dom.parentNode || this.length > 1
+
+      return this.each(function(index){
+        $(this).wrapAll(
+          func ? structure.call(this, index) :
+            clone ? dom.cloneNode(true) : dom
+        )
+      })
+    },
+    wrapAll: function(structure){
+      if (this[0]) {
+        $(this[0]).before(structure = $(structure))
+        var children
+        // drill down to the inmost element
+        while ((children = structure.children()).length) structure = children.first()
+        $(structure).append(this)
+      }
+      return this
+    },
+    wrapInner: function(structure){
+      var func = isFunction(structure)
+      return this.each(function(index){
+        var self = $(this), contents = self.contents(),
+            dom  = func ? structure.call(this, index) : structure
+        contents.length ? contents.wrapAll(dom) : self.append(dom)
+      })
+    },
+    unwrap: function(){
+      this.parent().each(function(){
+        $(this).replaceWith($(this).children())
+      })
+      return this
+    },
+    clone: function(){
+      return this.map(function(){ return this.cloneNode(true) })
+    },
+    hide: function(){
+      return this.css("display", "none")
+    },
+    toggle: function(setting){
+      return this.each(function(){
+        var el = $(this)
+        ;(setting === undefined ? el.css("display") == "none" : setting) ? el.show() : el.hide()
+      })
+    },
+    prev: function(selector){ return $(this.pluck('previousElementSibling')).filter(selector || '*') },
+    next: function(selector){ return $(this.pluck('nextElementSibling')).filter(selector || '*') },
+    html: function(html){
+      return 0 in arguments ?
+        this.each(function(idx){
+          var originHtml = this.innerHTML
+          $(this).empty().append( funcArg(this, html, idx, originHtml) )
+        }) :
+        (0 in this ? this[0].innerHTML : null)
+    },
+    text: function(text){
+      return 0 in arguments ?
+        this.each(function(idx){
+          var newText = funcArg(this, text, idx, this.textContent)
+          this.textContent = newText == null ? '' : ''+newText
+        }) :
+        (0 in this ? this[0].textContent : null)
+    },
+    attr: function(name, value){
+      var result
+      return (typeof name == 'string' && !(1 in arguments)) ?
+        (!this.length || this[0].nodeType !== 1 ? undefined :
+          (!(result = this[0].getAttribute(name)) && name in this[0]) ? this[0][name] : result
+        ) :
+        this.each(function(idx){
+          if (this.nodeType !== 1) return
+          if (isObject(name)) for (key in name) setAttribute(this, key, name[key])
+          else setAttribute(this, name, funcArg(this, value, idx, this.getAttribute(name)))
+        })
+    },
+    removeAttr: function(name){
+      return this.each(function(){ this.nodeType === 1 && name.split(' ').forEach(function(attribute){
+        setAttribute(this, attribute)
+      }, this)})
+    },
+    prop: function(name, value){
+      name = propMap[name] || name
+      return (1 in arguments) ?
+        this.each(function(idx){
+          this[name] = funcArg(this, value, idx, this[name])
+        }) :
+        (this[0] && this[0][name])
+    },
+    data: function(name, value){
+      var attrName = 'data-' + name.replace(capitalRE, '-$1').toLowerCase()
+
+      var data = (1 in arguments) ?
+        this.attr(attrName, value) :
+        this.attr(attrName)
+
+      return data !== null ? deserializeValue(data) : undefined
+    },
+    val: function(value){
+      return 0 in arguments ?
+        this.each(function(idx){
+          this.value = funcArg(this, value, idx, this.value)
+        }) :
+        (this[0] && (this[0].multiple ?
+           $(this[0]).find('option').filter(function(){ return this.selected }).pluck('value') :
+           this[0].value)
+        )
+    },
+    offset: function(coordinates){
+      if (coordinates) return this.each(function(index){
+        var $this = $(this),
+            coords = funcArg(this, coordinates, index, $this.offset()),
+            parentOffset = $this.offsetParent().offset(),
+            props = {
+              top:  coords.top  - parentOffset.top,
+              left: coords.left - parentOffset.left
+            }
+
+        if ($this.css('position') == 'static') props['position'] = 'relative'
+        $this.css(props)
+      })
+      if (!this.length) return null
+      var obj = this[0].getBoundingClientRect()
+      return {
+        left: obj.left + window.pageXOffset,
+        top: obj.top + window.pageYOffset,
+        width: Math.round(obj.width),
+        height: Math.round(obj.height)
+      }
+    },
+    css: function(property, value){
+      if (arguments.length < 2) {
+        var computedStyle, element = this[0]
+        if(!element) return
+        computedStyle = getComputedStyle(element, '')
+        if (typeof property == 'string')
+          return element.style[camelize(property)] || computedStyle.getPropertyValue(property)
+        else if (isArray(property)) {
+          var props = {}
+          $.each(property, function(_, prop){
+            props[prop] = (element.style[camelize(prop)] || computedStyle.getPropertyValue(prop))
+          })
+          return props
+        }
+      }
+
+      var css = ''
+      if (type(property) == 'string') {
+        if (!value && value !== 0)
+          this.each(function(){ this.style.removeProperty(dasherize(property)) })
+        else
+          css = dasherize(property) + ":" + maybeAddPx(property, value)
+      } else {
+        for (key in property)
+          if (!property[key] && property[key] !== 0)
+            this.each(function(){ this.style.removeProperty(dasherize(key)) })
+          else
+            css += dasherize(key) + ':' + maybeAddPx(key, property[key]) + ';'
+      }
+
+      return this.each(function(){ this.style.cssText += ';' + css })
+    },
+    index: function(element){
+      return element ? this.indexOf($(element)[0]) : this.parent().children().indexOf(this[0])
+    },
+    hasClass: function(name){
+      if (!name) return false
+      return emptyArray.some.call(this, function(el){
+        return this.test(className(el))
+      }, classRE(name))
+    },
+    addClass: function(name){
+      if (!name) return this
+      return this.each(function(idx){
+        if (!('className' in this)) return
+        classList = []
+        var cls = className(this), newName = funcArg(this, name, idx, cls)
+        newName.split(/\s+/g).forEach(function(klass){
+          if (!$(this).hasClass(klass)) classList.push(klass)
+        }, this)
+        classList.length && className(this, cls + (cls ? " " : "") + classList.join(" "))
+      })
+    },
+    removeClass: function(name){
+      return this.each(function(idx){
+        if (!('className' in this)) return
+        if (name === undefined) return className(this, '')
+        classList = className(this)
+        funcArg(this, name, idx, classList).split(/\s+/g).forEach(function(klass){
+          classList = classList.replace(classRE(klass), " ")
+        })
+        className(this, classList.trim())
+      })
+    },
+    toggleClass: function(name, when){
+      if (!name) return this
+      return this.each(function(idx){
+        var $this = $(this), names = funcArg(this, name, idx, className(this))
+        names.split(/\s+/g).forEach(function(klass){
+          (when === undefined ? !$this.hasClass(klass) : when) ?
+            $this.addClass(klass) : $this.removeClass(klass)
+        })
+      })
+    },
+    scrollTop: function(value){
+      if (!this.length) return
+      var hasScrollTop = 'scrollTop' in this[0]
+      if (value === undefined) return hasScrollTop ? this[0].scrollTop : this[0].pageYOffset
+      return this.each(hasScrollTop ?
+        function(){ this.scrollTop = value } :
+        function(){ this.scrollTo(this.scrollX, value) })
+    },
+    scrollLeft: function(value){
+      if (!this.length) return
+      var hasScrollLeft = 'scrollLeft' in this[0]
+      if (value === undefined) return hasScrollLeft ? this[0].scrollLeft : this[0].pageXOffset
+      return this.each(hasScrollLeft ?
+        function(){ this.scrollLeft = value } :
+        function(){ this.scrollTo(value, this.scrollY) })
+    },
+    position: function() {
+      if (!this.length) return
+
+      var elem = this[0],
+        // Get *real* offsetParent
+        offsetParent = this.offsetParent(),
+        // Get correct offsets
+        offset       = this.offset(),
+        parentOffset = rootNodeRE.test(offsetParent[0].nodeName) ? { top: 0, left: 0 } : offsetParent.offset()
+
+      // Subtract element margins
+      // note: when an element has margin: auto the offsetLeft and marginLeft
+      // are the same in Safari causing offset.left to incorrectly be 0
+      offset.top  -= parseFloat( $(elem).css('margin-top') ) || 0
+      offset.left -= parseFloat( $(elem).css('margin-left') ) || 0
+
+      // Add offsetParent borders
+      parentOffset.top  += parseFloat( $(offsetParent[0]).css('border-top-width') ) || 0
+      parentOffset.left += parseFloat( $(offsetParent[0]).css('border-left-width') ) || 0
+
+      // Subtract the two offsets
+      return {
+        top:  offset.top  - parentOffset.top,
+        left: offset.left - parentOffset.left
+      }
+    },
+    offsetParent: function() {
+      return this.map(function(){
+        var parent = this.offsetParent || document.body
+        while (parent && !rootNodeRE.test(parent.nodeName) && $(parent).css("position") == "static")
+          parent = parent.offsetParent
+        return parent
+      })
+    }
+  }
+
+  // for now
+  $.fn.detach = $.fn.remove
+
+  // Generate the `width` and `height` functions
+  ;['width', 'height'].forEach(function(dimension){
+    var dimensionProperty =
+      dimension.replace(/./, function(m){ return m[0].toUpperCase() })
+
+    $.fn[dimension] = function(value){
+      var offset, el = this[0]
+      if (value === undefined) return isWindow(el) ? el['inner' + dimensionProperty] :
+        isDocument(el) ? el.documentElement['scroll' + dimensionProperty] :
+        (offset = this.offset()) && offset[dimension]
+      else return this.each(function(idx){
+        el = $(this)
+        el.css(dimension, funcArg(this, value, idx, el[dimension]()))
+      })
+    }
+  })
+
+  function traverseNode(node, fun) {
+    fun(node)
+    for (var i = 0, len = node.childNodes.length; i < len; i++)
+      traverseNode(node.childNodes[i], fun)
+  }
+
+  // Generate the `after`, `prepend`, `before`, `append`,
+  // `insertAfter`, `insertBefore`, `appendTo`, and `prependTo` methods.
+  adjacencyOperators.forEach(function(operator, operatorIndex) {
+    var inside = operatorIndex % 2 //=> prepend, append
+
+    $.fn[operator] = function(){
+      // arguments can be nodes, arrays of nodes, Zepto objects and HTML strings
+      var argType, nodes = $.map(arguments, function(arg) {
+            argType = type(arg)
+            return argType == "object" || argType == "array" || arg == null ?
+              arg : zepto.fragment(arg)
+          }),
+          parent, copyByClone = this.length > 1
+      if (nodes.length < 1) return this
+
+      return this.each(function(_, target){
+        parent = inside ? target : target.parentNode
+
+        // convert all methods to a "before" operation
+        target = operatorIndex == 0 ? target.nextSibling :
+                 operatorIndex == 1 ? target.firstChild :
+                 operatorIndex == 2 ? target :
+                 null
+
+        var parentInDocument = $.contains(document.documentElement, parent)
+
+        nodes.forEach(function(node){
+          if (copyByClone) node = node.cloneNode(true)
+          else if (!parent) return $(node).remove()
+
+          parent.insertBefore(node, target)
+          if (parentInDocument) traverseNode(node, function(el){
+            if (el.nodeName != null && el.nodeName.toUpperCase() === 'SCRIPT' &&
+               (!el.type || el.type === 'text/javascript') && !el.src)
+              window['eval'].call(window, el.innerHTML)
+          })
+        })
+      })
+    }
+
+    // after    => insertAfter
+    // prepend  => prependTo
+    // before   => insertBefore
+    // append   => appendTo
+    $.fn[inside ? operator+'To' : 'insert'+(operatorIndex ? 'Before' : 'After')] = function(html){
+      $(html)[operator](this)
+      return this
+    }
+  })
+
+  zepto.Z.prototype = $.fn
+
+  // Export internal API functions in the `$.zepto` namespace
+  zepto.uniq = uniq
+  zepto.deserializeValue = deserializeValue
+  $.zepto = zepto
+
+  return $
+})()
+
+window.Zepto = Zepto
+window.$ === undefined && (window.$ = Zepto)
+
+;(function($){
+  var _zid = 1, undefined,
+      slice = Array.prototype.slice,
+      isFunction = $.isFunction,
+      isString = function(obj){ return typeof obj == 'string' },
+      handlers = {},
+      specialEvents={},
+      focusinSupported = 'onfocusin' in window,
+      focus = { focus: 'focusin', blur: 'focusout' },
+      hover = { mouseenter: 'mouseover', mouseleave: 'mouseout' }
+
+  specialEvents.click = specialEvents.mousedown = specialEvents.mouseup = specialEvents.mousemove = 'MouseEvents'
+
+  function zid(element) {
+    return element._zid || (element._zid = _zid++)
+  }
+  function findHandlers(element, event, fn, selector) {
+    event = parse(event)
+    if (event.ns) var matcher = matcherFor(event.ns)
+    return (handlers[zid(element)] || []).filter(function(handler) {
+      return handler
+        && (!event.e  || handler.e == event.e)
+        && (!event.ns || matcher.test(handler.ns))
+        && (!fn       || zid(handler.fn) === zid(fn))
+        && (!selector || handler.sel == selector)
+    })
+  }
+  function parse(event) {
+    var parts = ('' + event).split('.')
+    return {e: parts[0], ns: parts.slice(1).sort().join(' ')}
+  }
+  function matcherFor(ns) {
+    return new RegExp('(?:^| )' + ns.replace(' ', ' .* ?') + '(?: |$)')
+  }
+
+  function eventCapture(handler, captureSetting) {
+    return handler.del &&
+      (!focusinSupported && (handler.e in focus)) ||
+      !!captureSetting
+  }
+
+  function realEvent(type) {
+    return hover[type] || (focusinSupported && focus[type]) || type
+  }
+
+  function add(element, events, fn, data, selector, delegator, capture){
+    var id = zid(element), set = (handlers[id] || (handlers[id] = []))
+    events.split(/\s/).forEach(function(event){
+      if (event == 'ready') return $(document).ready(fn)
+      var handler   = parse(event)
+      handler.fn    = fn
+      handler.sel   = selector
+      // emulate mouseenter, mouseleave
+      if (handler.e in hover) fn = function(e){
+        var related = e.relatedTarget
+        if (!related || (related !== this && !$.contains(this, related)))
+          return handler.fn.apply(this, arguments)
+      }
+      handler.del   = delegator
+      var callback  = delegator || fn
+      handler.proxy = function(e){
+        e = compatible(e)
+        if (e.isImmediatePropagationStopped()) return
+        e.data = data
+        var result = callback.apply(element, e._args == undefined ? [e] : [e].concat(e._args))
+        if (result === false) e.preventDefault(), e.stopPropagation()
+        return result
+      }
+      handler.i = set.length
+      set.push(handler)
+      if ('addEventListener' in element)
+        element.addEventListener(realEvent(handler.e), handler.proxy, eventCapture(handler, capture))
+    })
+  }
+  function remove(element, events, fn, selector, capture){
+    var id = zid(element)
+    ;(events || '').split(/\s/).forEach(function(event){
+      findHandlers(element, event, fn, selector).forEach(function(handler){
+        delete handlers[id][handler.i]
+      if ('removeEventListener' in element)
+        element.removeEventListener(realEvent(handler.e), handler.proxy, eventCapture(handler, capture))
+      })
+    })
+  }
+
+  $.event = { add: add, remove: remove }
+
+  $.proxy = function(fn, context) {
+    var args = (2 in arguments) && slice.call(arguments, 2)
+    if (isFunction(fn)) {
+      var proxyFn = function(){ return fn.apply(context, args ? args.concat(slice.call(arguments)) : arguments) }
+      proxyFn._zid = zid(fn)
+      return proxyFn
+    } else if (isString(context)) {
+      if (args) {
+        args.unshift(fn[context], fn)
+        return $.proxy.apply(null, args)
+      } else {
+        return $.proxy(fn[context], fn)
+      }
+    } else {
+      throw new TypeError("expected function")
+    }
+  }
+
+  $.fn.bind = function(event, data, callback){
+    return this.on(event, data, callback)
+  }
+  $.fn.unbind = function(event, callback){
+    return this.off(event, callback)
+  }
+  $.fn.one = function(event, selector, data, callback){
+    return this.on(event, selector, data, callback, 1)
+  }
+
+  var returnTrue = function(){return true},
+      returnFalse = function(){return false},
+      ignoreProperties = /^([A-Z]|returnValue$|layer[XY]$)/,
+      eventMethods = {
+        preventDefault: 'isDefaultPrevented',
+        stopImmediatePropagation: 'isImmediatePropagationStopped',
+        stopPropagation: 'isPropagationStopped'
+      }
+
+  function compatible(event, source) {
+    if (source || !event.isDefaultPrevented) {
+      source || (source = event)
+
+      $.each(eventMethods, function(name, predicate) {
+        var sourceMethod = source[name]
+        event[name] = function(){
+          this[predicate] = returnTrue
+          return sourceMethod && sourceMethod.apply(source, arguments)
+        }
+        event[predicate] = returnFalse
+      })
+
+      if (source.defaultPrevented !== undefined ? source.defaultPrevented :
+          'returnValue' in source ? source.returnValue === false :
+          source.getPreventDefault && source.getPreventDefault())
+        event.isDefaultPrevented = returnTrue
+    }
+    return event
+  }
+
+  function createProxy(event) {
+    var key, proxy = { originalEvent: event }
+    for (key in event)
+      if (!ignoreProperties.test(key) && event[key] !== undefined) proxy[key] = event[key]
+
+    return compatible(proxy, event)
+  }
+
+  $.fn.delegate = function(selector, event, callback){
+    return this.on(event, selector, callback)
+  }
+  $.fn.undelegate = function(selector, event, callback){
+    return this.off(event, selector, callback)
+  }
+
+  $.fn.live = function(event, callback){
+    $(document.body).delegate(this.selector, event, callback)
+    return this
+  }
+  $.fn.die = function(event, callback){
+    $(document.body).undelegate(this.selector, event, callback)
+    return this
+  }
+
+  $.fn.on = function(event, selector, data, callback, one){
+    var autoRemove, delegator, $this = this
+    if (event && !isString(event)) {
+      $.each(event, function(type, fn){
+        $this.on(type, selector, data, fn, one)
+      })
+      return $this
+    }
+
+    if (!isString(selector) && !isFunction(callback) && callback !== false)
+      callback = data, data = selector, selector = undefined
+    if (isFunction(data) || data === false)
+      callback = data, data = undefined
+
+    if (callback === false) callback = returnFalse
+
+    return $this.each(function(_, element){
+      if (one) autoRemove = function(e){
+        remove(element, e.type, callback)
+        return callback.apply(this, arguments)
+      }
+
+      if (selector) delegator = function(e){
+        var evt, match = $(e.target).closest(selector, element).get(0)
+        if (match && match !== element) {
+          evt = $.extend(createProxy(e), {currentTarget: match, liveFired: element})
+          return (autoRemove || callback).apply(match, [evt].concat(slice.call(arguments, 1)))
+        }
+      }
+
+      add(element, event, callback, data, selector, delegator || autoRemove)
+    })
+  }
+  $.fn.off = function(event, selector, callback){
+    var $this = this
+    if (event && !isString(event)) {
+      $.each(event, function(type, fn){
+        $this.off(type, selector, fn)
+      })
+      return $this
+    }
+
+    if (!isString(selector) && !isFunction(callback) && callback !== false)
+      callback = selector, selector = undefined
+
+    if (callback === false) callback = returnFalse
+
+    return $this.each(function(){
+      remove(this, event, callback, selector)
+    })
+  }
+
+  $.fn.trigger = function(event, args){
+    event = (isString(event) || $.isPlainObject(event)) ? $.Event(event) : compatible(event)
+    event._args = args
+    return this.each(function(){
+      // handle focus(), blur() by calling them directly
+      if (event.type in focus && typeof this[event.type] == "function") this[event.type]()
+      // items in the collection might not be DOM elements
+      else if ('dispatchEvent' in this) this.dispatchEvent(event)
+      else $(this).triggerHandler(event, args)
+    })
+  }
+
+  // triggers event handlers on current element just as if an event occurred,
+  // doesn't trigger an actual event, doesn't bubble
+  $.fn.triggerHandler = function(event, args){
+    var e, result
+    this.each(function(i, element){
+      e = createProxy(isString(event) ? $.Event(event) : event)
+      e._args = args
+      e.target = element
+      $.each(findHandlers(element, event.type || event), function(i, handler){
+        result = handler.proxy(e)
+        if (e.isImmediatePropagationStopped()) return false
+      })
+    })
+    return result
+  }
+
+  // shortcut methods for `.bind(event, fn)` for each event type
+  ;('focusin focusout focus blur load resize scroll unload click dblclick '+
+  'mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave '+
+  'change select keydown keypress keyup error').split(' ').forEach(function(event) {
+    $.fn[event] = function(callback) {
+      return (0 in arguments) ?
+        this.bind(event, callback) :
+        this.trigger(event)
+    }
+  })
+
+  $.Event = function(type, props) {
+    if (!isString(type)) props = type, type = props.type
+    var event = document.createEvent(specialEvents[type] || 'Events'), bubbles = true
+    if (props) for (var name in props) (name == 'bubbles') ? (bubbles = !!props[name]) : (event[name] = props[name])
+    event.initEvent(type, bubbles, true)
+    return compatible(event)
+  }
+
+})(Zepto)
+
+;(function($){
+  var jsonpID = 0,
+      document = window.document,
+      key,
+      name,
+      rscript = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,
+      scriptTypeRE = /^(?:text|application)\/javascript/i,
+      xmlTypeRE = /^(?:text|application)\/xml/i,
+      jsonType = 'application/json',
+      htmlType = 'text/html',
+      blankRE = /^\s*$/,
+      originAnchor = document.createElement('a')
+
+  originAnchor.href = window.location.href
+
+  // trigger a custom event and return false if it was cancelled
+  function triggerAndReturn(context, eventName, data) {
+    var event = $.Event(eventName)
+    $(context).trigger(event, data)
+    return !event.isDefaultPrevented()
+  }
+
+  // trigger an Ajax "global" event
+  function triggerGlobal(settings, context, eventName, data) {
+    if (settings.global) return triggerAndReturn(context || document, eventName, data)
+  }
+
+  // Number of active Ajax requests
+  $.active = 0
+
+  function ajaxStart(settings) {
+    if (settings.global && $.active++ === 0) triggerGlobal(settings, null, 'ajaxStart')
+  }
+  function ajaxStop(settings) {
+    if (settings.global && !(--$.active)) triggerGlobal(settings, null, 'ajaxStop')
+  }
+
+  // triggers an extra global event "ajaxBeforeSend" that's like "ajaxSend" but cancelable
+  function ajaxBeforeSend(xhr, settings) {
+    var context = settings.context
+    if (settings.beforeSend.call(context, xhr, settings) === false ||
+        triggerGlobal(settings, context, 'ajaxBeforeSend', [xhr, settings]) === false)
+      return false
+
+    triggerGlobal(settings, context, 'ajaxSend', [xhr, settings])
+  }
+  function ajaxSuccess(data, xhr, settings, deferred) {
+    var context = settings.context, status = 'success'
+    settings.success.call(context, data, status, xhr)
+    if (deferred) deferred.resolveWith(context, [data, status, xhr])
+    triggerGlobal(settings, context, 'ajaxSuccess', [xhr, settings, data])
+    ajaxComplete(status, xhr, settings)
+  }
+  // type: "timeout", "error", "abort", "parsererror"
+  function ajaxError(error, type, xhr, settings, deferred) {
+    var context = settings.context
+    settings.error.call(context, xhr, type, error)
+    if (deferred) deferred.rejectWith(context, [xhr, type, error])
+    triggerGlobal(settings, context, 'ajaxError', [xhr, settings, error || type])
+    ajaxComplete(type, xhr, settings)
+  }
+  // status: "success", "notmodified", "error", "timeout", "abort", "parsererror"
+  function ajaxComplete(status, xhr, settings) {
+    var context = settings.context
+    settings.complete.call(context, xhr, status)
+    triggerGlobal(settings, context, 'ajaxComplete', [xhr, settings])
+    ajaxStop(settings)
+  }
+
+  // Empty function, used as default callback
+  function empty() {}
+
+  $.ajaxJSONP = function(options, deferred){
+    if (!('type' in options)) return $.ajax(options)
+
+    var _callbackName = options.jsonpCallback,
+      callbackName = ($.isFunction(_callbackName) ?
+        _callbackName() : _callbackName) || ('jsonp' + (++jsonpID)),
+      script = document.createElement('script'),
+      originalCallback = window[callbackName],
+      responseData,
+      abort = function(errorType) {
+        $(script).triggerHandler('error', errorType || 'abort')
+      },
+      xhr = { abort: abort }, abortTimeout
+
+    if (deferred) deferred.promise(xhr)
+
+    $(script).on('load error', function(e, errorType){
+      clearTimeout(abortTimeout)
+      $(script).off().remove()
+
+      if (e.type == 'error' || !responseData) {
+        ajaxError(null, errorType || 'error', xhr, options, deferred)
+      } else {
+        ajaxSuccess(responseData[0], xhr, options, deferred)
+      }
+
+      window[callbackName] = originalCallback
+      if (responseData && $.isFunction(originalCallback))
+        originalCallback(responseData[0])
+
+      originalCallback = responseData = undefined
+    })
+
+    if (ajaxBeforeSend(xhr, options) === false) {
+      abort('abort')
+      return xhr
+    }
+
+    window[callbackName] = function(){
+      responseData = arguments
+    }
+
+    script.src = options.url.replace(/\?(.+)=\?/, '?$1=' + callbackName)
+    document.head.appendChild(script)
+
+    if (options.timeout > 0) abortTimeout = setTimeout(function(){
+      abort('timeout')
+    }, options.timeout)
+
+    return xhr
+  }
+
+  $.ajaxSettings = {
+    // Default type of request
+    type: 'GET',
+    // Callback that is executed before request
+    beforeSend: empty,
+    // Callback that is executed if the request succeeds
+    success: empty,
+    // Callback that is executed the the server drops error
+    error: empty,
+    // Callback that is executed on request complete (both: error and success)
+    complete: empty,
+    // The context for the callbacks
+    context: null,
+    // Whether to trigger "global" Ajax events
+    global: true,
+    // Transport
+    xhr: function () {
+      return new window.XMLHttpRequest()
+    },
+    // MIME types mapping
+    // IIS returns Javascript as "application/x-javascript"
+    accepts: {
+      script: 'text/javascript, application/javascript, application/x-javascript',
+      json:   jsonType,
+      xml:    'application/xml, text/xml',
+      html:   htmlType,
+      text:   'text/plain'
+    },
+    // Whether the request is to another domain
+    crossDomain: false,
+    // Default timeout
+    timeout: 0,
+    // Whether data should be serialized to string
+    processData: true,
+    // Whether the browser should be allowed to cache GET responses
+    cache: true
+  }
+
+  function mimeToDataType(mime) {
+    if (mime) mime = mime.split(';', 2)[0]
+    return mime && ( mime == htmlType ? 'html' :
+      mime == jsonType ? 'json' :
+      scriptTypeRE.test(mime) ? 'script' :
+      xmlTypeRE.test(mime) && 'xml' ) || 'text'
+  }
+
+  function appendQuery(url, query) {
+    if (query == '') return url
+    return (url + '&' + query).replace(/[&?]{1,2}/, '?')
+  }
+
+  // serialize payload and append it to the URL for GET requests
+  function serializeData(options) {
+    if (options.processData && options.data && $.type(options.data) != "string")
+      options.data = $.param(options.data, options.traditional)
+    if (options.data && (!options.type || options.type.toUpperCase() == 'GET'))
+      options.url = appendQuery(options.url, options.data), options.data = undefined
+  }
+
+  $.ajax = function(options){
+    var settings = $.extend({}, options || {}),
+        deferred = $.Deferred && $.Deferred(),
+        urlAnchor
+    for (key in $.ajaxSettings) if (settings[key] === undefined) settings[key] = $.ajaxSettings[key]
+
+    ajaxStart(settings)
+
+    if (!settings.crossDomain) {
+      urlAnchor = document.createElement('a')
+      urlAnchor.href = settings.url
+      urlAnchor.href = urlAnchor.href
+      settings.crossDomain = (originAnchor.protocol + '//' + originAnchor.host) !== (urlAnchor.protocol + '//' + urlAnchor.host)
+    }
+
+    if (!settings.url) settings.url = window.location.toString()
+    serializeData(settings)
+
+    var dataType = settings.dataType, hasPlaceholder = /\?.+=\?/.test(settings.url)
+    if (hasPlaceholder) dataType = 'jsonp'
+
+    if (settings.cache === false || (
+         (!options || options.cache !== true) &&
+         ('script' == dataType || 'jsonp' == dataType)
+        ))
+      settings.url = appendQuery(settings.url, '_=' + Date.now())
+
+    if ('jsonp' == dataType) {
+      if (!hasPlaceholder)
+        settings.url = appendQuery(settings.url,
+          settings.jsonp ? (settings.jsonp + '=?') : settings.jsonp === false ? '' : 'callback=?')
+      return $.ajaxJSONP(settings, deferred)
+    }
+
+    var mime = settings.accepts[dataType],
+        headers = { },
+        setHeader = function(name, value) { headers[name.toLowerCase()] = [name, value] },
+        protocol = /^([\w-]+:)\/\//.test(settings.url) ? RegExp.$1 : window.location.protocol,
+        xhr = settings.xhr(),
+        nativeSetHeader = xhr.setRequestHeader,
+        abortTimeout
+
+    if (deferred) deferred.promise(xhr)
+
+    if (!settings.crossDomain) setHeader('X-Requested-With', 'XMLHttpRequest')
+    setHeader('Accept', mime || '*/*')
+    if (mime = settings.mimeType || mime) {
+      if (mime.indexOf(',') > -1) mime = mime.split(',', 2)[0]
+      xhr.overrideMimeType && xhr.overrideMimeType(mime)
+    }
+    if (settings.contentType || (settings.contentType !== false && settings.data && settings.type.toUpperCase() != 'GET'))
+      setHeader('Content-Type', settings.contentType || 'application/x-www-form-urlencoded')
+
+    if (settings.headers) for (name in settings.headers) setHeader(name, settings.headers[name])
+    xhr.setRequestHeader = setHeader
+
+    xhr.onreadystatechange = function(){
+      if (xhr.readyState == 4) {
+        xhr.onreadystatechange = empty
+        clearTimeout(abortTimeout)
+        var result, error = false
+        if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304 || (xhr.status == 0 && protocol == 'file:')) {
+          dataType = dataType || mimeToDataType(settings.mimeType || xhr.getResponseHeader('content-type'))
+          result = xhr.responseText
+
+          try {
+            // http://perfectionkills.com/global-eval-what-are-the-options/
+            if (dataType == 'script')    (1,eval)(result)
+            else if (dataType == 'xml')  result = xhr.responseXML
+            else if (dataType == 'json') result = blankRE.test(result) ? null : $.parseJSON(result)
+          } catch (e) { error = e }
+
+          if (error) ajaxError(error, 'parsererror', xhr, settings, deferred)
+          else ajaxSuccess(result, xhr, settings, deferred)
+        } else {
+          ajaxError(xhr.statusText || null, xhr.status ? 'error' : 'abort', xhr, settings, deferred)
+        }
+      }
+    }
+
+    if (ajaxBeforeSend(xhr, settings) === false) {
+      xhr.abort()
+      ajaxError(null, 'abort', xhr, settings, deferred)
+      return xhr
+    }
+
+    if (settings.xhrFields) for (name in settings.xhrFields) xhr[name] = settings.xhrFields[name]
+
+    var async = 'async' in settings ? settings.async : true
+    xhr.open(settings.type, settings.url, async, settings.username, settings.password)
+
+    for (name in headers) nativeSetHeader.apply(xhr, headers[name])
+
+    if (settings.timeout > 0) abortTimeout = setTimeout(function(){
+        xhr.onreadystatechange = empty
+        xhr.abort()
+        ajaxError(null, 'timeout', xhr, settings, deferred)
+      }, settings.timeout)
+
+    // avoid sending empty string (#319)
+    xhr.send(settings.data ? settings.data : null)
+    return xhr
+  }
+
+  // handle optional data/success arguments
+  function parseArguments(url, data, success, dataType) {
+    if ($.isFunction(data)) dataType = success, success = data, data = undefined
+    if (!$.isFunction(success)) dataType = success, success = undefined
+    return {
+      url: url
+    , data: data
+    , success: success
+    , dataType: dataType
+    }
+  }
+
+  $.get = function(/* url, data, success, dataType */){
+    return $.ajax(parseArguments.apply(null, arguments))
+  }
+
+  $.post = function(/* url, data, success, dataType */){
+    var options = parseArguments.apply(null, arguments)
+    options.type = 'POST'
+    return $.ajax(options)
+  }
+
+  $.getJSON = function(/* url, data, success */){
+    var options = parseArguments.apply(null, arguments)
+    options.dataType = 'json'
+    return $.ajax(options)
+  }
+
+  $.fn.load = function(url, data, success){
+    if (!this.length) return this
+    var self = this, parts = url.split(/\s/), selector,
+        options = parseArguments(url, data, success),
+        callback = options.success
+    if (parts.length > 1) options.url = parts[0], selector = parts[1]
+    options.success = function(response){
+      self.html(selector ?
+        $('<div>').html(response.replace(rscript, "")).find(selector)
+        : response)
+      callback && callback.apply(self, arguments)
+    }
+    $.ajax(options)
+    return this
+  }
+
+  var escape = encodeURIComponent
+
+  function serialize(params, obj, traditional, scope){
+    var type, array = $.isArray(obj), hash = $.isPlainObject(obj)
+    $.each(obj, function(key, value) {
+      type = $.type(value)
+      if (scope) key = traditional ? scope :
+        scope + '[' + (hash || type == 'object' || type == 'array' ? key : '') + ']'
+      // handle data in serializeArray() format
+      if (!scope && array) params.add(value.name, value.value)
+      // recurse into nested objects
+      else if (type == "array" || (!traditional && type == "object"))
+        serialize(params, value, traditional, key)
+      else params.add(key, value)
+    })
+  }
+
+  $.param = function(obj, traditional){
+    var params = []
+    params.add = function(key, value) {
+      if ($.isFunction(value)) value = value()
+      if (value == null) value = ""
+      this.push(escape(key) + '=' + escape(value))
+    }
+    serialize(params, obj, traditional)
+    return params.join('&').replace(/%20/g, '+')
+  }
+})(Zepto)
+
+;(function($){
+  $.fn.serializeArray = function() {
+    var name, type, result = [],
+      add = function(value) {
+        if (value.forEach) return value.forEach(add)
+        result.push({ name: name, value: value })
+      }
+    if (this[0]) $.each(this[0].elements, function(_, field){
+      type = field.type, name = field.name
+      if (name && field.nodeName.toLowerCase() != 'fieldset' &&
+        !field.disabled && type != 'submit' && type != 'reset' && type != 'button' && type != 'file' &&
+        ((type != 'radio' && type != 'checkbox') || field.checked))
+          add($(field).val())
+    })
+    return result
+  }
+
+  $.fn.serialize = function(){
+    var result = []
+    this.serializeArray().forEach(function(elm){
+      result.push(encodeURIComponent(elm.name) + '=' + encodeURIComponent(elm.value))
+    })
+    return result.join('&')
+  }
+
+  $.fn.submit = function(callback) {
+    if (0 in arguments) this.bind('submit', callback)
+    else if (this.length) {
+      var event = $.Event('submit')
+      this.eq(0).trigger(event)
+      if (!event.isDefaultPrevented()) this.get(0).submit()
+    }
+    return this
+  }
+
+})(Zepto)
+
+;(function($){
+  // __proto__ doesn't exist on IE<11, so redefine
+  // the Z function to use object extension instead
+  if (!('__proto__' in {})) {
+    $.extend($.zepto, {
+      Z: function(dom, selector){
+        dom = dom || []
+        $.extend(dom, $.fn)
+        dom.selector = selector || ''
+        dom.__Z = true
+        return dom
+      },
+      // this is a kludge but works
+      isZ: function(object){
+        return $.type(object) === 'array' && '__Z' in object
+      }
+    })
+  }
+
+  // getComputedStyle shouldn't freak out when called
+  // without a valid element as argument
+  try {
+    getComputedStyle(undefined)
+  } catch(e) {
+    var nativeGetComputedStyle = getComputedStyle;
+    window.getComputedStyle = function(element){
+      try {
+        return nativeGetComputedStyle(element)
+      } catch(e) {
+        return null
+      }
+    }
+  }
+})(Zepto)
+	</script>
+ 
+	<script>
+		var page_value_changed = 0;
+		function pageValueChange() {
+			page_value_changed = 1;
+			//alert('Range value change');
+		};
+		var is_waitting_response = 0;
+		$(document).ready(
+				function() {
+					$.get('../status?mode=get&devicepwd={0}'.format($('#devicepwd')
+							.val()), function(resJson) {
+						is_waitting_response = 0;
+						switch (resJson.errCode) {
+						case '0': {
+							$('#sw_1_name').html(resJson.sw1name);
+							$('#sw_2_name').html(resJson.sw2name);
+							$('#input_switch_1_name').val(resJson.sw1name);
+							$('#input_switch_2_name').val(resJson.sw2name);
+							$('#device_name_show').html(resJson.devicename);
+							$('#device_name').val(resJson.devicename);
+							$('#serverip').val(resJson.serverip);
+							$('#id_temp').text(resJson.temp + 'C');
+							$('#id_humity').text(resJson.humi + 'RH%');
+							$('#color_r').val(resJson.r);
+							$('#color_g').val(resJson.g);
+							$('#color_b').val(resJson.b);
+
+							var mode = resJson.mode;
+							if('normal' == mode){
+								$('#device_name').attr("disabled","disabled");
+								$('#devicepwd').attr("disabled","disabled");
+								$('#serverip').attr("disabled","disabled");
+								$('#ssid').attr("disabled","disabled");
+								$('#input-pwd').attr("disabled","disabled");
+								$('#scanap').attr("disabled","true");
+								$('#connect').attr("disabled","true");	
+								$('#input_switch_1_name').attr("disabled","disabled");
+								$('#input_switch_2_name').attr("disabled","disabled");
+								if ('false' == resJson.sw1) {
+									//console.log('close switch 1');
+									$("#checkbox_1").removeAttr("checked");
+								} else {
+									//console.log('open switch 1');
+									$('#checkbox_1').attr('checked', true);
+								}
+								if ('false' == resJson.sw2) {
+									//console.log('close switch 2');
+									$("#checkbox_2").removeAttr("checked");
+								} else {
+									//console.log('open switch 2');
+									$('#checkbox_2').attr('checked', true);
+								}
+								
+							} else {
+								$('#color_r').attr("disabled","true");
+								$('#color_g').attr("disabled","true");
+								$('#color_b').attr("disabled","true");	
+								$('#checkbox_1').attr("disabled","true");
+								$('#checkbox_2').attr("disabled","true");
+								$('#btn_color').attr("disabled","true");
+								$('#btn_switch').attr("disabled","true");
+							}
+						}
+							break;
+						case '-1':
+							//alert('Wrong password!');
+							$('#id_temp').text('query failed.');
+							$('#id_humity').text('query failed.');
+							break;
+						default:
+							//alert('Unkonwn error!\n'+resJson.msg);
+							$('#id_temp').text('unkonwn.');
+							$('#id_humity').text('unkonwn.');
+							break;
+						}
+					});
+					var queryTempTimer = setInterval(function() {
+
+						//if the page content changed then bypass a query
+						if (0 != page_value_changed) {
+							page_value_changed = 0
+							return;
+						}
+						if (0 != is_waitting_response) {
+							return;
+						} else {
+							is_waitting_response = 1;
+						}
+						$.get('../status?mode=get&devicepwd={0}'.format($('#devicepwd')
+								.val()), function(resJson) {
+						is_waitting_response = 0;
+						switch (resJson.errCode) {
+						case '0': {
+							$('#sw_1_name').html(resJson.sw1name);
+							$('#sw_2_name').html(resJson.sw2name);
+							$('#input_switch_1_name').val(resJson.sw1name);
+							$('#input_switch_2_name').val(resJson.sw2name);
+							$('#device_name_show').html(resJson.devicename);
+							$('#device_name').val(resJson.devicename);
+							$('#serverip').val(resJson.serverip);
+							$('#id_temp').text(resJson.temp + 'C');
+							$('#id_humity').text(resJson.humi + 'RH%');
+							$('#color_r').val(resJson.r);
+							$('#color_g').val(resJson.g);
+							$('#color_b').val(resJson.b);
+							
+							var mode = resJson.mode;
+							if('normal' == mode){
+								$('#device_name').attr("disabled","disabled");
+								$('#devicepwd').attr("disabled","disabled");
+								$('#serverip').attr("disabled","disabled");
+								$('#ssid').attr("disabled","disabled");
+								$('#input-pwd').attr("disabled","disabled");
+								$('#scanap').attr("disabled","true");
+								$('#connect').attr("disabled","true");	
+								$('#input_switch_1_name').attr("disabled","disabled");
+								$('#input_switch_2_name').attr("disabled","disabled");
+								if ('false' == resJson.sw1) {
+									//console.log('close switch 1');
+									$("#checkbox_1").removeAttr("checked");
+								} else {
+									//console.log('open switch 1');
+									$('#checkbox_1').attr('checked', true);
+								}
+								if ('false' == resJson.sw2) {
+									//console.log('close switch 2');
+									$("#checkbox_2").removeAttr("checked");
+								} else {
+									//console.log('open switch 2');
+									$('#checkbox_2').attr('checked', true);
+								}
+								
+							} else {
+								$('#color_r').attr("disabled","true");
+								$('#color_g').attr("disabled","true");
+								$('#color_b').attr("disabled","true");	
+								$('#checkbox_1').attr("disabled","true");
+								$('#checkbox_2').attr("disabled","true");
+								$('#btn_color').attr("disabled","true");
+								$('#btn_switch').attr("disabled","true");
+							}
+						}
+							break;
+						case '-1':
+							//alert('Wrong password!');
+							$('#id_temp').text('query failed.');
+							$('#id_humity').text('query failed.');
+							break;
+						default:
+							//alert('Unkonwn error!\n'+resJson.msg);
+							$('#id_temp').text('unkonwn.');
+							$('#id_humity').text('unkonwn.');
+							break;
+						}
+					});
+					}, 5000);
+				})
+	</script>
+	<script>
+		String.prototype.format = function() {
+			var args = arguments;
+			return this.replace(/\{(\d+)\}/g, function(m, i) {
+				return args[i];
+			});
+		}
+
+		$(function() {
+
+			$('#btn_color').click(function() {
+								page_value_changed = 1
+								$('#btn_color').addClass('loading').prop('disabled', true);
+								$.get('../status?mode=set&devicepwd={0}&r={1}&g={2}&b={3}&sw1={4}&sw2={5}'.format(
+																$('#devicepwd').val(),
+																$('#color_r').val(),
+																$('#color_g').val(),
+																$('#color_b').val(),
+																$('#checkbox_1').is(':checked'),
+																$('#checkbox_2').is(':checked')),
+												function(resJson) {
+													$('#btn_color').removeClass('loading').prop('disabled',false);
+													switch (resJson.errCode) {
+													case '0':
+														//alert('Control success!\n');
+														break;
+													case '-1':
+														alert('Wrong password!');
+														break;
+													default:
+														alert('Unkonwn error!\n'
+																+ resJson.msg);
+													}
+													;
+
+												});
+							});
+
+			$('#btn_switch').click(function() {
+								page_value_changed = 1
+								$('#btn_switch').addClass('loading').prop(
+										'disabled', true);
+								$.get('../status?mode=set&devicepwd={0}&r={1}&g={2}&b={3}&sw1={4}&sw2={5}'.format(
+																$('#devicepwd').val(),
+																$('#color_r').val(),
+																$('#color_g').val(),
+																$('#color_b').val(),
+																$('#checkbox_1').is(':checked'),
+																$('#checkbox_2').is(':checked')),
+												function(resJson) {
+													$('#btn_switch').removeClass('loading').prop('disabled',false);
+													switch (resJson.errCode) {
+													case '0':
+														//alert('Control success!\n');
+														break;
+													case '-1':
+														alert('Wrong password!');
+														break;
+													default:
+														alert('Unkonwn error!\n'
+																+ resJson.msg);
+													}
+													;
+
+												});
+							});
+
+			$('#connect').click(function() {
+								page_value_changed = 1
+								$('#connect').addClass('loading').prop('disabled', true);
+
+								$.get('../setwifi?ssid={0}&pwd={1}&serverip={2}&devicepwd={3}&devicename={4}&sw1name={5}&sw2name={6}'
+														.format($('#ssid').val(), 
+																$('#input-pwd').val(), 
+																$('#serverip').val(), 
+																$('#devicepwd').val(),
+																$('#device_name').val(), 
+																$('#input_switch_1_name').val(), 
+																$('#input_switch_2_name').val()
+																),
+												function(resJson) {
+													$('#connect').removeClass(
+															'loading').prop(
+															'disabled', false);
+													switch (resJson.errCode) {
+													case '0':
+														alert('Connect success!\nPlease connect to AP:['
+																+ resJson.APName
+																+ '] \nand then open:['
+																+ resJson.url
+																+ '] by web browser.');
+														break;
+													case '-1':
+														alert('Wrong password!\n'
+																+ resJson.msg);
+														break;
+													default:
+														alert('Unkonwn error!\n'
+																+ resJson.msg);
+													}
+													;
+												});
+							});
+
+			$('#scanap')
+					.click(
+							function() {
+								page_value_changed = 1
+								$('#scanap').addClass('loading').prop(
+										'disabled', true);
+
+								$
+										.get(
+												'../scanap',
+												function(resJson) {
+													$('#scanap').removeClass(
+															'loading').prop(
+															'disabled', false);
+
+													var template = $('#item-ap')
+															.html();
+													var cos45 = sin45 = 0.70710678118655;
+													var html = '';
+													var count = 0;
+													for (ssid in resJson) {
+
+														count = count + 1;
+														var r = 0.3333 * parseInt(resJson[ssid]) + 33.3333;
+														r = r > 20 ? 20
+																: (r < 0 ? 0
+																		: r)
+
+														html += template
+																.format(
+																		15
+																				- r
+																				* cos45,
+																		20
+																				- r
+																				* sin45,
+																		r,
+																		15
+																				+ r
+																				* cos45,
+																		ssid);
+													}
+													if (0 >= count) {
+														alert('Can not find WIFI.');
+														return;
+													}
+													$('#aplist').html(html)
+													$('#selectwifi').addClass(
+															'active');
+
+													$("#aplist div")
+															.click(
+																	function() {
+																		$(
+																				'#selectwifi')
+																				.removeClass(
+																						'active');
+
+																		var ssid = $(
+																				this)
+																				.children(
+																						'.chip-content')
+																				.html()
+																		$(
+																				'#ssid')
+																				.val(
+																						ssid);
+																	});
+												});
+							});
+		})
+	</script>
+</body>
+</html>
