@@ -2,6 +2,43 @@ print("-->Init config.lua use ", collectgarbage("count"), "kb")
 require("HttpResult")
 
 
+
+SDA_PIN = 23 -- sda pin, GPIO12
+SCL_PIN = 22 -- scl pin, GPIO14
+
+bh1750 = require("bh1750")
+bh1750.init(SDA_PIN, SCL_PIN)
+print("init BH1750 finish.")
+--bh1750.read(OSS)
+--l = bh1750.getlux()/100
+--print("lux: "..l.." lx")
+
+bh1750_timer=tmr.create()
+
+function bh1750Callback()
+
+    l = bh1750.getlux()
+    print("lux: "..l.." lx")
+end
+
+bh1750_timer:register( 5000,tmr.ALARM_AUTO,bh1750Callback)
+bh1750_timer:start()
+
+
+
+HDC1000 = require("HDC1000")
+HDC1000.init(SDA_PIN, SCL_PIN)
+
+
+hdc1080_timer=tmr.create()
+
+function hdc1080RedCallback()
+    print(string.format("Temperature: %.2f C\nHumidity: %.2f %%", HDC1000.getTemp(), HDC1000.getHumi()))
+end
+
+hdc1080_timer:register( 5000,tmr.ALARM_AUTO,hdc1080RedCallback)
+hdc1080_timer:start()
+
 function print_r ( t )  
     local print_r_cache={}
     local function sub_print_r(t,indent)
@@ -98,7 +135,11 @@ httpServer:use('/status', function(req, res)
 		res:type('application/json')
 		--res:send('{"errCode":"' ..OP_OK.. '","mode":"'..sysCfg['mode']..'","devicename":"'..sysCfg['devicename']..'","sw1name":"'..sysCfg['sw1name']..'","sw2name":"'..sysCfg['sw2name']..'","serverip":"none","r":"'..'0'..'","g":"'..'0'..'","b":"'..'0'..'","sw1":"'..'0'..'","sw2":"'..'0'..'","temp":"'..'1234'..'","humi":"'..'4321'..'"}')
 		
+			local temp = tonumber(HDC1000.getTemp())
+			local humi = tonumber(HDC1000.getHumi())
 			local retTmp = HttpResult.init_status_info( sysCfg )
+			retTmp["temp"]=temp
+			retTmp["humi"]=humi
 			retTmp["sysOnTime"]=node.uptime()
 
 			local ok, ret = pcall(sjson.encode, HttpResult.init_status_info( sysCfg ))
