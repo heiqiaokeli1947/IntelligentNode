@@ -137,7 +137,11 @@ wifi.sta.config(sta_cfg)
 
 reg_count=30
 connect_count=0;
+register_success = 0;
 wifi_timer=tmr.create()
+
+
+data_report_timer=tmr.create()
 
 
 function wifiHook() 
@@ -153,28 +157,38 @@ function wifiHook()
 			end
 	else
 		reg_count=reg_count+1
-		if(reg_count < 30)then
+		if(register_success == 1)then
 			return;
 		end
 		print("Connected:",wifi_ip);
 		print("Reg to:"..sysCfg['serverip']);
 		wifi_timer:stop();
 
+		local registerTmp = HttpResult.init_device_register_info( sysCfg )
+				registerTmp["deviceIp"]=wifi_ip
+				local ok, ret = pcall(sjson.encode, registerTmp)
+				if ok then
+					print("register info:"..ret)
+				else
+					ret="{}"
+				end
+				url='http://'..sysCfg['serverip']..':8002/registerService/register'
+				print("url:"..url)
+				
 		headers = {
 		["Content-Type"] = "application/json",
 		}
-		http.post('http://'..sysCfg['serverip']..':8080/springMVC/hello/deviceregister',
-		{ headers = headers },
-		'{"registerType":"simple","ip":"'..wifi_ip..'","devicepwd":"'..sysCfg['devicepwd']..'"}',
+		http.post(url,
+		{ headers = headers },ret,
 		function(code,data)
 			print(code,data)
 			if (code==200) then
 				print("Reg success.")
-				reg_count=0
+				register_success = 1
+				data_report_timer:start();
 				wifi_timer:start();
 			else
-				print("Reg failed.")
-				reg_count=30
+				print("Reg failed.try count:"..reg_count)
 				wifi_timer:start();
 			end
 		end)
@@ -183,8 +197,57 @@ function wifiHook()
 end
 
 
+data_report_success = 0
+data_report_failed = 0
+
+function dataReportTask() 
+	if(0==register_success)then
+			print("register not ready,no need to report data.")
+	else
+		data_report_timer:stop()
+
+		local temp = tonumber(HDC1000.getTemp())
+		local humi = tonumber(HDC1000.getHumi())
+		local lumination = tonumber(bh1750.getlux())
+		sec, usec = time.get()
+		
+		local dataTmp = HttpResult.init_report_data( sysCfg )
+				dataTmp["deviceIp"]=wifi_ip
+				dataTmp["timestamp"]=temp
+				dataTmp["temperature"]=temp
+				dataTmp["humidity"]=humi
+				dataTmp["lumination"]=lumination
+				dataTmp["timestamp"]=tonumber(sec)
+				local ok, ret = pcall(sjson.encode, dataTmp)
+				if ok then
+					print("report data:"..ret)
+				else
+					ret="{}"
+				end
+		headers = {
+		["Content-Type"] = "application/json",
+		}
+		http.post('http://'..sysCfg['serverip']..':8002/dataReciveService/reportData',
+		{ headers = headers },ret,
+		function(code,data)
+			print(code,data)
+			if (code==200) then
+				data_report_success = data_report_success+1
+				print("report success. total count:"..data_report_success)
+				data_report_timer:start();
+			else
+				data_report_failed = data_report_failed+1
+				print("report failed. toal count:"..data_report_failed)
+				data_report_timer:start();
+			end
+		end)
+		
+	end
+end
 
 
+
+data_report_timer:register( 5000,tmr.ALARM_AUTO,dataReportTask)
 wifi_timer:register( 5000,tmr.ALARM_AUTO,wifiHook)
 wifi_timer:start()
 

@@ -43,6 +43,37 @@ http_res_of_status_get={
 		
 		}
 		
+http_res_of_device_register_info={
+				deviceIp="",
+				deviceName="",
+				devicetype="",
+				description=node.chipid(),
+				userName="",
+				password="",
+				productKey="",
+				deviceSecret="",
+				regionId="",
+				longitude="",
+				latitude="",
+				altitude=""
+				}
+				
+http_res_of_report_data={
+				deviceIp="",
+				timestamp=1234567890,
+				temperature=-1,
+				humidity=-1,
+				pressure=-999999999,
+				lumination=-1,
+				color="FF00FF"
+				}
+function HttpResult.init_report_data(result)
+ 
+		--http_res_of_report_data["deviceIp"]=result['APIP']
+ 
+		return http_res_of_report_data
+end
+		
 http_res_of_set_wifi={
 		errCode=tostring(HttpResult.OP_OK),
 		msg="",
@@ -85,6 +116,21 @@ function HttpResult.init_status_info( sysCfg )
 	http_res_of_status_info["apname"]=sysCfg['APName']
 	
 	return http_res_of_status_info
+	
+end
+
+function HttpResult.init_device_register_info( sysCfg )
+    
+	http_res_of_device_register_info["deviceIp"]=sysCfg['serverip']
+	http_res_of_device_register_info["devicetype"]=sysCfg['devicetype']
+	http_res_of_device_register_info["deviceName"]=sysCfg['devicename']
+	http_res_of_device_register_info["userName"]=sysCfg['deviceusername']
+	http_res_of_device_register_info["password"]=sysCfg['devicepwd']
+	http_res_of_device_register_info["longitude"]=sysCfg['longitude']
+	http_res_of_device_register_info["latitude"]=sysCfg['latitude']
+	http_res_of_device_register_info["altitude"]=sysCfg['altitude']
+	
+	return http_res_of_device_register_info
 	
 end
 
