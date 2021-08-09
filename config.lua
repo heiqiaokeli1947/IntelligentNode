@@ -89,15 +89,17 @@ wifi.ap.config({ ssid = AP_SSID, pwd = AP_PWD,auth = wifi.AUTH_OPEN })
 wifi.ap.setip({ip=sysCfg['APIP'],netmask=sysCfg['APNetMask'],gateway=sysCfg['APGateway']})
 
 local TM_OUT=240
+local wifi_get_ip=0
+local wifi_ip
 
 wait_count=TM_OUT
 wifi_timer = tmr.create()
 function wifiHook() 
-	if(wait_count > 0)then
+	if((wait_count > 0) and (wifi_get_ip == 0))then
 		print("Tick down:"..wait_count);
 		wait_count = wait_count - 1;
 	else
-		print("Time out:Switch to normal mode...");
+		print("Time out or conect wifi sucess:Switch to normal mode...");
 		sysCfg['mode'] = 'normal';
 		saveCfg(sysCfg)
 		node.restart();
@@ -106,6 +108,20 @@ end
 wifi_timer:register( 1000, tmr.ALARM_AUTO, wifiHook)
 wifi_timer:start()
 
+
+
+function wifiGotIpHook(event, info) 
+	print("got ip "..info.ip) 
+	wifi_get_ip=1
+	wifi_ip=info.ip
+end
+
+print("try connect to SSID"..sysCfg['wifiname']..",pwd:"..sysCfg['wifipwd'])
+wifi.sta.on("got_ip", wifiGotIpHook)
+local tmp_station_cfg={}
+tmp_station_cfg.ssid=sysCfg['wifiname']
+tmp_station_cfg.pwd=sysCfg['wifipwd']
+wifi.sta.config(tmp_station_cfg)
 
 
 print("-->Before dofile:httpServer.lua  ", collectgarbage("count"), "kb")
@@ -158,13 +174,7 @@ httpServer:use('/status', function(req, res)
 	end
 end)
 
-local wifi_get_ip=0
-local wifi_ip
-function wifiGotIpHook(event, info) 
-	print("got ip "..info.ip) 
-	wifi_get_ip=1
-	wifi_ip=info.ip
-end
+
 
 httpServer:use('/setwifi', function(req, res)
 	if req.query.ssid ~= nil and req.query.pwd ~= nil and req.query.devicepwd ~= nil and req.query.serverip ~= nil then

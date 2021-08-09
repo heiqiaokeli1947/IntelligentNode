@@ -119,7 +119,7 @@ sta_cfg={}
 sta_cfg.ssid=sysCfg['wifiname']
 sta_cfg.pwd=sysCfg['wifipwd']
 
-print('Set up WIFI:'..sta_cfg.ssid..','..sta_cfg.pwd)
+print("try connect to SSID"..sysCfg['wifiname']..",pwd:"..sysCfg['wifipwd'])
 local wifi_get_ip=0
 local wifi_ip
 function wifiGotIpHook(event, info) 
@@ -135,7 +135,7 @@ wifi.start()
 wifi.sta.config(sta_cfg)
 --wifi.sta.autoconnect(1)
 
-reg_count=30
+reg_count=0
 connect_count=0;
 register_success = 0;
 wifi_timer=tmr.create()
@@ -150,7 +150,7 @@ function wifiHook()
 				print("Try connect to:["..sta_cfg.ssid.."]...");
 				connect_count=connect_count+1
 			else
-				print("Switch to config mode...");
+				print("Connect wifi failed,switch to config mode...");
 				sysCfg['mode']='config';
 				saveCfg(sysCfg)
 				node.restart();
@@ -160,6 +160,14 @@ function wifiHook()
 		if(register_success == 1)then
 			return;
 		end
+		
+		if(reg_count > 5)then
+			print("Register failed too many times,switch to config mode...");
+				sysCfg['mode']='config';
+				saveCfg(sysCfg)
+				node.restart();
+		end
+		
 		print("Connected:",wifi_ip);
 		print("Reg to:"..sysCfg['serverip']);
 		wifi_timer:stop();
@@ -199,6 +207,7 @@ end
 
 data_report_success = 0
 data_report_failed = 0
+continous_report_failed = 0
 
 function dataReportTask() 
 	if(0==register_success)then
@@ -233,11 +242,19 @@ function dataReportTask()
 			print(code,data)
 			if (code==200) then
 				data_report_success = data_report_success+1
+				continous_report_failed = 0;
 				print("report success. total count:"..data_report_success)
 				data_report_timer:start();
 			else
 				data_report_failed = data_report_failed+1
-				print("report failed. toal count:"..data_report_failed)
+				continous_report_failed = continous_report_failed+1
+				print("report failed. total count:"..data_report_failed..",continous count:"..continous_report_failed)
+				if (continous_report_failed > 5) then
+					print("switch to config mode.")
+					sysCfg['mode'] = 'normal';
+					saveCfg(sysCfg)
+					node.restart();
+				end
 				data_report_timer:start();
 			end
 		end)
