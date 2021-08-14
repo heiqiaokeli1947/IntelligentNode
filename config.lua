@@ -21,7 +21,7 @@ function bh1750Callback()
     print("lux: "..l.." lx")
 end
 
-bh1750_timer:register( 5000,tmr.ALARM_AUTO,bh1750Callback)
+bh1750_timer:register( 10000,tmr.ALARM_AUTO,bh1750Callback)
 bh1750_timer:start()
 
 
@@ -36,7 +36,7 @@ function hdc1080RedCallback()
     print(string.format("Temperature: %.2f C\nHumidity: %.2f %%", HDC1000.getTemp(), HDC1000.getHumi()))
 end
 
-hdc1080_timer:register( 5000,tmr.ALARM_AUTO,hdc1080RedCallback)
+hdc1080_timer:register( 10000,tmr.ALARM_AUTO,hdc1080RedCallback)
 hdc1080_timer:start()
 
 function print_r ( t )  
@@ -116,7 +116,7 @@ function wifiGotIpHook(event, info)
 	wifi_ip=info.ip
 end
 
-print("try connect to SSID"..sysCfg['wifiname']..",pwd:"..sysCfg['wifipwd'])
+print("try connect to SSID:"..sysCfg['wifiname']..",pwd:"..sysCfg['wifipwd'])
 wifi.sta.on("got_ip", wifiGotIpHook)
 local tmp_station_cfg={}
 tmp_station_cfg.ssid=sysCfg['wifiname']
@@ -148,9 +148,7 @@ httpServer:use('/status', function(req, res)
 		end
 
 		print("call ok...")
-		res:type('application/json')
-		--res:send('{"errCode":"' ..OP_OK.. '","mode":"'..sysCfg['mode']..'","devicename":"'..sysCfg['devicename']..'","sw1name":"'..sysCfg['sw1name']..'","sw2name":"'..sysCfg['sw2name']..'","serverip":"none","r":"'..'0'..'","g":"'..'0'..'","b":"'..'0'..'","sw1":"'..'0'..'","sw2":"'..'0'..'","temp":"'..'1234'..'","humi":"'..'4321'..'"}')
-		
+		res:type('application/json')		
 			local temp = tonumber(HDC1000.getTemp())
 			local humi = tonumber(HDC1000.getHumi())
 			local retTmp = HttpResult.init_status_info( sysCfg )
@@ -163,10 +161,7 @@ httpServer:use('/status', function(req, res)
 				res:send(ret)
 				else
 				res:send('{"errCode":"'..HttpResult.OP_ERROR..'","msg":"'..'json encode failed.'..'"}')
-				end
-		
-		--res:send('{"errCode":"' ..OP_OK.. '","mode":"config","devicename":"'..sysCfg['devicename']..'","sw1name":"'..sysCfg['sw1name']..'","sw2name":"F2","serverip":"none","r":"0","g":"0","b":"0","sw1":"0","sw2":"0","temp":"1234","humi":"4321"}')
-		
+				end		
 	else
 		print("param invalid.")
 		res:type('application/json')
@@ -177,7 +172,7 @@ end)
 
 
 httpServer:use('/setwifi', function(req, res)
-	if req.query.ssid ~= nil and req.query.pwd ~= nil and req.query.devicepwd ~= nil and req.query.serverip ~= nil then
+	if req.query.ssid ~= nil and req.query.pwd ~= nil and req.query.devicepwd ~= nil and req.query.serverurl ~= nil then
 		try_connect_wifi_count=0
 		wait_count=TM_OUT
 		print("new ssid:"..req.query.ssid..",pwd:"..req.query.pwd)
@@ -201,7 +196,7 @@ httpServer:use('/setwifi', function(req, res)
 				print("Switch to normal mode...");
 				sysCfg['wifiname']=req.query.ssid
 				sysCfg['wifipwd']=req.query.pwd
-				sysCfg['serverip']=req.query.serverip
+				sysCfg['serverurl']=req.query.serverurl
 				sysCfg['devicepwd']=req.query.devicepwd
 				sysCfg['devicename']=req.query.devicename
 				sysCfg['sw1name']=req.query.sw1name

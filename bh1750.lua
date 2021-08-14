@@ -48,7 +48,7 @@ function bh1750Read()
 	bh1750_set_sleep_timer:stop()
 	
 end
-bh1750_set_sleep_timer:register( 150,tmr.ALARM_AUTO,bh1750Read)
+bh1750_set_sleep_timer:register( 300,tmr.ALARM_AUTO,bh1750Read)
 
 function bh1750ReadCallback()
 	--print(node.uptime()..":send cmd...")
@@ -66,7 +66,7 @@ function M.init(sda, scl)
     print(node.uptime()..":init i2c..")
 	i2c.setup(I2C_ID, sda, scl, i2c.SLOW)
     print(node.uptime()..":start BH1750 read thread..")
-	bh1750_read_timer:register( 200,tmr.ALARM_AUTO,bh1750ReadCallback)
+	bh1750_read_timer:register( 5000,tmr.ALARM_AUTO,bh1750ReadCallback)
 	bh1750_read_timer:start()
     init = true
 end

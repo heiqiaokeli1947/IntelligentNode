@@ -169,7 +169,7 @@ function wifiHook()
 		end
 		
 		print("Connected:",wifi_ip);
-		print("Reg to:"..sysCfg['serverip']);
+		print("Reg to:"..sysCfg['serverurl']);
 		wifi_timer:stop();
 
 		local registerTmp = HttpResult.init_device_register_info( sysCfg )
@@ -180,7 +180,7 @@ function wifiHook()
 				else
 					ret="{}"
 				end
-				url='http://'..sysCfg['serverip']..':8002/registerService/register'
+				url=sysCfg['serverurl']..'/registerService/register'
 				print("url:"..url)
 				
 		headers = {
@@ -222,7 +222,13 @@ function dataReportTask()
 		
 		local dataTmp = HttpResult.init_report_data( sysCfg )
 				dataTmp["deviceIp"]=wifi_ip
-				dataTmp["timestamp"]=temp
+				dataTmp["pm2_5"]=0
+				dataTmp["pressure"]=0
+				dataTmp["co2"]=0
+				dataTmp["battery"]=0
+				dataTmp["solarcell"]=0
+				dataTmp["o2"]=0
+				dataTmp["co"]=0
 				dataTmp["temperature"]=temp
 				dataTmp["humidity"]=humi
 				dataTmp["lumination"]=lumination
@@ -236,7 +242,7 @@ function dataReportTask()
 		headers = {
 		["Content-Type"] = "application/json",
 		}
-		http.post('http://'..sysCfg['serverip']..':8002/dataReciveService/reportData',
+		http.post(sysCfg['serverurl']..'/dataReciveService/reportData',
 		{ headers = headers },ret,
 		function(code,data)
 			print(code,data)

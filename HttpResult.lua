@@ -8,7 +8,7 @@ HttpResult.OP_OK=0
 
 http_res_of_status_info={
 				errCode=tostring(HttpResult.OP_OK),
-				serverip="",
+				serverurl="",
 --				type="",
 				mode="",
 				devicename="",
@@ -31,7 +31,7 @@ http_res_of_status_get={
 		devicename="",
 		sw1name="",
 		sw2name="",
-		serverip="",
+		serverurl="",
 		r=0,
 		g=0,
 		b=0,
@@ -97,14 +97,14 @@ function HttpResult.init_status_get( sysCfg)
 		http_res_of_status_get["devicename"]=sysCfg['devicename']
 		http_res_of_status_get["sw1name"]=sysCfg['sw1name']
 		http_res_of_status_get["sw2name"]=sysCfg['sw2name']
-		http_res_of_status_get["serverip"]=sysCfg['serverip']
+		http_res_of_status_get["serverurl"]=sysCfg['serverurl']
  
 		return http_res_of_status_get
 end
 		
 function HttpResult.init_status_info( sysCfg )
     
-	http_res_of_status_info["serverip"]=sysCfg['serverip']
+	http_res_of_status_info["serverurl"]=sysCfg['serverurl']
 	http_res_of_status_info["mode"]=sysCfg['mode']
 	http_res_of_status_info["devicename"]=sysCfg['devicename']
 	http_res_of_status_info["sw1name"]=sysCfg['sw1name']
@@ -121,7 +121,7 @@ end
 
 function HttpResult.init_device_register_info( sysCfg )
     
-	http_res_of_device_register_info["deviceIp"]=sysCfg['serverip']
+	http_res_of_device_register_info["deviceIp"]=sysCfg['serverurl']
 	http_res_of_device_register_info["devicetype"]=sysCfg['devicetype']
 	http_res_of_device_register_info["deviceName"]=sysCfg['devicename']
 	http_res_of_device_register_info["userName"]=sysCfg['deviceusername']

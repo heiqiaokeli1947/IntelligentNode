@@ -87,7 +87,7 @@ function hdc1080TempRead()
 	
 end
 
-hdc1080_read_temp_sleep_timer:register( 200,tmr.ALARM_AUTO,hdc1080TempRead)
+hdc1080_read_temp_sleep_timer:register( 400,tmr.ALARM_AUTO,hdc1080TempRead)
 
 
 function hdc1080ReadTempCallback()
@@ -110,7 +110,7 @@ function hdc1080HumiRead()
 	
 end
 
-hdc1080_read_humi_sleep_timer:register( 200,tmr.ALARM_AUTO,hdc1080HumiRead)
+hdc1080_read_humi_sleep_timer:register( 400,tmr.ALARM_AUTO,hdc1080HumiRead)
 
 
 function hdc1080ReadHumiCallback()
@@ -126,7 +126,7 @@ function M.init(sda, scl)
 	i2c.setup(I2C_ID, sda, scl, i2c.SLOW)
 	config(HDC1000_ADDR, HDC1000_TEMP_HUMI_14BIT, HDC1000_HEAT_ON)
 	print(node.uptime()..":start HDC1080 read thread..")
-	hdc1080_read_timer:register( 1000,tmr.ALARM_AUTO,hdc1080ReadHumiCallback)
+	hdc1080_read_timer:register( 5000,tmr.ALARM_AUTO,hdc1080ReadHumiCallback)
 	hdc1080_read_timer:start()
 	hdc1080_init = true
 end

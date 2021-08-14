@@ -3721,7 +3721,7 @@ a.text-error:hover {
 
 					<label class="form-label" for="select-ap">Server IP:</label>
 					<div class="input-group">
-						<input type="text" id="serverip" class="form-input"
+						<input type="text" id="serverurl" class="form-input"
 							value="192.168.1.124" placeholder="Input server IP."
 							onchange="pageValueChange()" oninput="pageValueChange()" />
 					</div>
@@ -5395,7 +5395,7 @@ window.$ === undefined && (window.$ = Zepto)
 							$('#input_switch_2_name').val(resJson.sw2name);
 							$('#device_name_show').html(resJson.devicename);
 							$('#device_name').val(resJson.devicename);
-							$('#serverip').val(resJson.serverip);
+							$('#serverurl').val(resJson.serverurl);
 							$('#id_temp').text(resJson.temp + 'C');
 							$('#id_humity').text(resJson.humi + 'RH%');
 							$('#color_r').val(resJson.r);
@@ -5406,7 +5406,7 @@ window.$ === undefined && (window.$ = Zepto)
 							if('normal' == mode){
 								$('#device_name').attr("disabled","disabled");
 								$('#devicepwd').attr("disabled","disabled");
-								$('#serverip').attr("disabled","disabled");
+								$('#serverurl').attr("disabled","disabled");
 								$('#ssid').attr("disabled","disabled");
 								$('#input-pwd').attr("disabled","disabled");
 								$('#scanap').attr("disabled","true");
@@ -5474,7 +5474,7 @@ window.$ === undefined && (window.$ = Zepto)
 							$('#input_switch_2_name').val(resJson.sw2name);
 							$('#device_name_show').html(resJson.devicename);
 							$('#device_name').val(resJson.devicename);
-							$('#serverip').val(resJson.serverip);
+							$('#serverurl').val(resJson.serverurl);
 							$('#id_temp').text(resJson.temp + 'C');
 							$('#id_humity').text(resJson.humi + 'RH%');
 							$('#color_r').val(resJson.r);
@@ -5485,7 +5485,7 @@ window.$ === undefined && (window.$ = Zepto)
 							if('normal' == mode){
 								$('#device_name').attr("disabled","disabled");
 								$('#devicepwd').attr("disabled","disabled");
-								$('#serverip').attr("disabled","disabled");
+								$('#serverurl').attr("disabled","disabled");
 								$('#ssid').attr("disabled","disabled");
 								$('#input-pwd').attr("disabled","disabled");
 								$('#scanap').attr("disabled","true");
@@ -5604,10 +5604,10 @@ window.$ === undefined && (window.$ = Zepto)
 								page_value_changed = 1
 								$('#connect').addClass('loading').prop('disabled', true);
 
-								$.get('../setwifi?ssid={0}&pwd={1}&serverip={2}&devicepwd={3}&devicename={4}&sw1name={5}&sw2name={6}'
+								$.get('../setwifi?ssid={0}&pwd={1}&serverurl={2}&devicepwd={3}&devicename={4}&sw1name={5}&sw2name={6}'
 														.format($('#ssid').val(), 
 																$('#input-pwd').val(), 
-																$('#serverip').val(), 
+																$('#serverurl').val(), 
 																$('#devicepwd').val(),
 																$('#device_name').val(), 
 																$('#input_switch_1_name').val(), 
