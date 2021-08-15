@@ -61,6 +61,12 @@ hdc1080_timer:start()
 
 
 
+
+PMS5003I = require("PMS5003I")
+PMS5003I.init(SDA_PIN, SCL_PIN)
+print("init PMS5003I finish.")
+
+
 print("init SW...")
 --gpio.mode(IO_SW1,gpio.OUTPUT)
 gpio.config( { gpio=IO_SW1, dir=gpio.OUT} )
@@ -222,7 +228,7 @@ function dataReportTask()
 		
 		local dataTmp = HttpResult.init_report_data( sysCfg )
 				dataTmp["deviceIp"]=wifi_ip
-				dataTmp["pm2_5"]=0
+				dataTmp["pm2_5"]=PMS5003I.getPM2_5Value()
 				dataTmp["pressure"]=0
 				dataTmp["co2"]=0
 				dataTmp["battery"]=0

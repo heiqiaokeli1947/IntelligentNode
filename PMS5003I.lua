@@ -47,7 +47,7 @@ function M.init(sda, scl)
     print(node.uptime()..":init i2c..")
 	i2c.setup(I2C_ID, sda, scl, i2c.SLOW)
     print(node.uptime()..":start PM2.5 sensor read thread..")
-	PM_sensor_read_timer:register( 1000,tmr.ALARM_AUTO,PM2_5ReadCallback)
+	PM_sensor_read_timer:register( 5000,tmr.ALARM_AUTO,PM2_5ReadCallback)
 	PM_sensor_read_timer:start()
     init = true
 end
