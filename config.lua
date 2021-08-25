@@ -5,24 +5,21 @@ require("HttpResult")
 
 SDA_PIN = 23 -- sda pin, GPIO12
 SCL_PIN = 22 -- scl pin, GPIO14
-
-bh1750 = require("bh1750")
-bh1750.init(SDA_PIN, SCL_PIN)
-print("init BH1750 finish.")
---bh1750.read(OSS)
---l = bh1750.getlux()/100
---print("lux: "..l.." lx")
-
-bh1750_timer=tmr.create()
-
-function bh1750Callback()
-
-    l = bh1750.getlux()
-    print("lux: "..l.." lx")
-end
-
-bh1750_timer:register( 10000,tmr.ALARM_AUTO,bh1750Callback)
-bh1750_timer:start()
+--
+--bh1750 = require("bh1750")
+--bh1750.init(SDA_PIN, SCL_PIN)
+--print("init BH1750 finish.")
+--
+--bh1750_timer=tmr.create()
+--
+--function bh1750Callback()
+--
+--    l = bh1750.getlux()
+--    print("lux: "..l.." lx")
+--end
+--
+--bh1750_timer:register( 10000,tmr.ALARM_AUTO,bh1750Callback)
+--bh1750_timer:start()
 
 
 
@@ -88,7 +85,7 @@ print('AP SSID:['..AP_SSID.."]")
 wifi.ap.config({ ssid = AP_SSID, pwd = AP_PWD,auth = wifi.AUTH_OPEN })
 wifi.ap.setip({ip=sysCfg['APIP'],netmask=sysCfg['APNetMask'],gateway=sysCfg['APGateway']})
 
-local TM_OUT=240
+local TM_OUT=300
 local wifi_get_ip=0
 local wifi_ip
 
@@ -122,6 +119,15 @@ local tmp_station_cfg={}
 tmp_station_cfg.ssid=sysCfg['wifiname']
 tmp_station_cfg.pwd=sysCfg['wifipwd']
 wifi.sta.config(tmp_station_cfg)
+
+
+delay_restart_timer = tmr.create()
+function restartHook() 
+	print("Restart...");
+	node.restart();
+end
+delay_restart_timer:register( 3000, tmr.ALARM_AUTO, restartHook)
+
 
 
 print("-->Before dofile:httpServer.lua  ", collectgarbage("count"), "kb")
@@ -183,6 +189,11 @@ httpServer:use('/setwifi', function(req, res)
 			return
 		end
 
+		res:type('application/json')
+		if req.query.ssid == '' or req.query.pwd == ''  then
+			res:send('{"errCode":"' ..HttpResult.OP_REJECT..'","msg":"'..'SSID or PWD is empty.'..'"}')
+			return
+		end
 
 		wifi.sta.on("got_ip", wifiGotIpHook)
 		local tmp_station_cfg={}
@@ -216,7 +227,7 @@ httpServer:use('/setwifi', function(req, res)
 				end
 				--res:send('{"errCode":"'..HttpResult.OP_OK..'","msg":"'..'connect success I will switch to noarmal mode.'..'"}')
 				print("resopnse finish...");
-				node.restart();
+				delay_restart_timer:start()
 			else
 				if(try_connect_wifi_count<20)then
 					print('try to connect again...')

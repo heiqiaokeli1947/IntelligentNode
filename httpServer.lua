@@ -126,6 +126,7 @@ function Res:sendFile(filename)
 			end
 			self._skt:send(buf)
 			pos=pos + buffer_size
+			print('send offset:'..pos)
 			buf=nil
 		end
 		file.close()

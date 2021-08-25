@@ -66,7 +66,7 @@ function M.init(sda, scl)
     print(node.uptime()..":init i2c..")
 	i2c.setup(I2C_ID, sda, scl, i2c.SLOW)
     print(node.uptime()..":start BH1750 read thread..")
-	bh1750_read_timer:register( 5000,tmr.ALARM_AUTO,bh1750ReadCallback)
+	bh1750_read_timer:register( 10000,tmr.ALARM_AUTO,bh1750ReadCallback)
 	bh1750_read_timer:start()
     init = true
 end

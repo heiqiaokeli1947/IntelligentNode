@@ -126,7 +126,7 @@ function M.init(sda, scl)
 	i2c.setup(I2C_ID, sda, scl, i2c.SLOW)
 	config(HDC1000_ADDR, HDC1000_TEMP_HUMI_14BIT, HDC1000_HEAT_ON)
 	print(node.uptime()..":start HDC1080 read thread..")
-	hdc1080_read_timer:register( 5000,tmr.ALARM_AUTO,hdc1080ReadHumiCallback)
+	hdc1080_read_timer:register( 10000,tmr.ALARM_AUTO,hdc1080ReadHumiCallback)
 	hdc1080_read_timer:start()
 	hdc1080_init = true
 end
