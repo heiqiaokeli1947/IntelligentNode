@@ -276,7 +276,7 @@ end
 
 
 
-data_report_timer:register( 5000,tmr.ALARM_AUTO,dataReportTask)
+data_report_timer:register( 30000,tmr.ALARM_AUTO,dataReportTask)
 wifi_timer:register( 5000,tmr.ALARM_AUTO,wifiHook)
 wifi_timer:start()
 
