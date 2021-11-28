@@ -63,7 +63,18 @@ hdc1080_timer:start()
 
 
 PMS5003I = require("PMS5003I")
-PMS5003I.init(SDA_PIN, SCL_PIN)
+--PMS5003I.init(SDA_PIN, SCL_PIN)
+
+
+local ok, ret = pcall(PMS5003I.init, SDA_PIN, SCL_PIN)
+if ok then
+	print("------------------------init PMS5003 OK.")
+else
+	print("************************init PMS5003 Failed.")
+end	
+
+
+
 print("init PMS5003I finish.")
 
 

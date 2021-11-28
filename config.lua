@@ -121,12 +121,12 @@ tmp_station_cfg.pwd=sysCfg['wifipwd']
 wifi.sta.config(tmp_station_cfg)
 
 
-delay_restart_timer = tmr.create()
-function restartHook() 
-	print("Restart...");
-	node.restart();
-end
-delay_restart_timer:register( 3000, tmr.ALARM_AUTO, restartHook)
+--delay_restart_timer = tmr.create()
+--function restartHook() 
+--	print("Restart...");
+--	node.restart();
+--end
+--delay_restart_timer:register( 3000, tmr.ALARM_AUTO, restartHook)
 
 
 

@@ -42,6 +42,15 @@ hdc1080_read_temp_sleep_timer=tmr.create()
 local function read16()
 	i2c.start(I2C_ID)
 	i2c.address(I2C_ID, HDC1000_ADDR, i2c.RECEIVER)
+	local ok, ret = pcall(i2c.address, I2C_ID, GY_30_address,i2c.RECEIVER)
+	if ret then
+		print("------------------------BH1750 1 IIC OK.")
+	else
+		print("************************read16():!!i2c device dI2C_ID not ACK second address operation")
+		hdc1080_init = false
+		return
+	end	
+	
 	data_temp = i2c.read(0, 2)
 	i2c.stop(I2C_ID)
 	data = bit.lshift(string.byte(data_temp, 1, 1), 8) + string.byte(data_temp, 2, 2)
@@ -53,6 +62,15 @@ end
 local function setReadRegister(register)
 	i2c.start(I2C_ID)
 	i2c.address(I2C_ID, HDC1000_ADDR, i2c.TRANSMITTER)
+	local ok, ret = pcall(i2c.address, I2C_ID, HDC1000_ADDR, i2c.TRANSMITTER)
+	if ret then
+		print("------------------------BH1750 1 IIC OK.")
+	else
+		print("************************setReadRegister():!!i2c device dI2C_ID not ACK second address operation")
+		hdc1080_init = false
+		return
+	end	
+	
 	i2c.write(I2C_ID, register)
 	i2c.stop(I2C_ID)
 end
@@ -60,7 +78,16 @@ end
 -- writes the 2 configuration bytes
 local function writeConfig(config)
 	i2c.start(I2C_ID)
-	i2c.address(I2C_ID, HDC1000_ADDR, i2c.TRANSMITTER)
+	--i2c.address(I2C_ID, HDC1000_ADDR, i2c.TRANSMITTER)
+	local ok, ret = pcall(i2c.address, I2C_ID, HDC1000_ADDR, i2c.TRANSMITTER)
+	if ret then
+		print("------------------------BH1750 1 IIC OK.")
+	else
+		print("************************writeConfig():!!i2c device dI2C_ID not ACK second address operation")
+		hdc1080_init = false
+		return
+	end	
+	
 	i2c.write(I2C_ID, HDC1000_CONFIG, config, 0x00)
 	i2c.stop(I2C_ID)
 end
@@ -139,7 +166,7 @@ function M.getHumi()
 		return string.format("%.2f",hdc1080Humi)
 	end
 	
-	return -1
+	return -9999
 end
 
 -- outputs humidity in %RH
@@ -148,7 +175,7 @@ function M.getTemp()
 		return string.format("%.2f",hdc1080Temp)
 	end
 	
-	return -1
+	return -9999
 end
 
 return M

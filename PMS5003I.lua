@@ -17,7 +17,17 @@ PM_sensor_read_timer=tmr.create()
 function PM2_5ReadCallback()
 	--print(node.uptime()..":read Bh1750...")
 	i2c.start(I2C_ID)
-    assert( i2c.address(I2C_ID, PMSensorAddr,i2c.RECEIVER), "!!i2c device dI2C_ID not ACK second address operation" )
+    --assert( i2c.address(I2C_ID, PMSensorAddr,i2c.RECEIVER), "!!i2c device dI2C_ID not ACK second address operation" )
+	local ok, ret = pcall(i2c.address, I2C_ID, PMSensorAddr,i2c.RECEIVER)
+	if ret then
+		print("------------------------PMS5003 IIC OK.")
+	else
+		print("************************!!i2c device dI2C_ID not ACK second address operation")
+		PM2_5_Value = -1;
+		return
+	end	
+	
+	
     dataT = i2c.read(I2C_ID, RESULT_LENGTH)
     i2c.stop(I2C_ID)
 	local errCode = dataT:byte(30);

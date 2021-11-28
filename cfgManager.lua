@@ -11,7 +11,7 @@ function loadCfg()
 				local paramEndPos=string.find(line, '\n')
 				local v=string.sub(line,delimPos+1,delimPos+1+(#line)-delimPos-2)
 				cfg[k] = v
-				--print('Read:k:['..k..'],v:['..v.."]")
+				print('Read:k:['..k..'],v:['..v.."]")
 			end
 		until line==nil
 		fd:close(); fd = nil

@@ -26,6 +26,7 @@ local init = false
 local i2c = i2c
 
 local count = 0
+
 	
 	
 
@@ -37,7 +38,16 @@ bh1750_set_sleep_timer=tmr.create()
 function bh1750Read()
 	--print(node.uptime()..":read Bh1750...")
 	i2c.start(I2C_ID)
-    assert( i2c.address(I2C_ID, GY_30_address,i2c.RECEIVER), "!!i2c device dI2C_ID not ACK second address operation" )
+    --assert( i2c.address(I2C_ID, GY_30_address,i2c.RECEIVER), "!!i2c device dI2C_ID not ACK second address operation" )
+	local ok, ret = pcall(i2c.address, I2C_ID, GY_30_address,i2c.RECEIVER)
+	if ret then
+		print("------------------------BH1750 1 IIC OK.")
+	else
+		print("************************!!i2c device dI2C_ID not ACK second address operation")
+		bh1750Result = -1
+		return
+	end	
+	
     dataT = i2c.read(I2C_ID, RESULT_LENGTH)
     i2c.stop(I2C_ID)
 	tmpValue = dataT:byte(1) * 256 + dataT:byte(2)
@@ -53,7 +63,16 @@ bh1750_set_sleep_timer:register( 300,tmr.ALARM_AUTO,bh1750Read)
 function bh1750ReadCallback()
 	--print(node.uptime()..":send cmd...")
 	i2c.start(I2C_ID)
-    assert(i2c.address(I2C_ID, GY_30_address, i2c.TRANSMITTER) , "!!i2c device dI2C_ID not ACK first address operation" )
+    --assert(i2c.address(I2C_ID, GY_30_address, i2c.TRANSMITTER) , "!!i2c device dI2C_ID not ACK first address operation" )
+	
+	local ok, ret = pcall(i2c.address, I2C_ID, GY_30_address, i2c.TRANSMITTER)
+	if ret then
+		print("------------------------BH1750 2 IIC OK.")
+	else
+		print("************************!!i2c device dI2C_ID not ACK second address operation")
+		return
+	end	
+	
 	i2c.write(I2C_ID, CMD)
     i2c.stop(I2C_ID)
 	--print(node.uptime()..":start delay timer:120ms...")
