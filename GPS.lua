@@ -31,15 +31,18 @@ local GPRMC_START_FLAG="$GPRMC,"
 local GPRMC_END_FLAG="*"
 local GPRMC_REPORT_MAX_LENGTH=1520 -- 76*2
 
+local GPGGA_START_FLAG="$GPGGA,"
+local GPGGA_END_FLAG="*"
+local GPGGA_REPORT_MAX_LENGTH=1520 -- 76*2
+
+
+
 local GPRMCReciveBuffer = ""
+local GPGGAReciveBuffer = ""
 
 local GPSResultCode = {}
 
-GPSResultCode.OP_ERROR=-1
-GPSResultCode.OP_OK=0
-
 GPSResult={
-			errCode=tostring(GPSResultCode.OP_ERROR),
 			timeStamp="",--yyyy-MM-dd HH:mm:ss
 			Longitude=-999999,--经度
 			latitude=-999999,--纬度
@@ -49,16 +52,48 @@ GPSResult={
 			mode=""
 			}
 
-
-
 local function GPRMCParser(report)
 	if(report ~= nil) then
+		print("---GPRMC report:"..report)
 		local list = stringSplit(report,",")
 		GPSResult.mode = list[12]
+		
+		if(GPSResult.mode ~= 'N') then
+			utcTime = list[1]
+			utcDate = list[9]
+			GPSResult.timeStamp = "20"..string.sub(utcDate,5,6).."-"..string.sub(utcDate,3,4).."-"..string.sub(utcDate,1,2).." "..string.sub(utcTime,1,2)..":"..string.sub(utcTime,3,4)..":"..string.sub(utcTime,5,6)
+			GPSResult.Longitude=tonumber(list[5])/100
+			if(list[6] == 'E') then
+				GPSResult.Longitude=tonumber(list[5])/100
+			else
+				GPSResult.Longitude=-tonumber(list[5])/100
+			end
+			
+			if(list[4] == 'N') then
+				GPSResult.latitude=tonumber(list[3])/100
+			else
+				GPSResult.latitude=-tonumber(list[3])/100
+			end
+			
+			GPSResult.speed=tonumber(list[7])*1.852
+		else
+			GPSResult.Longitude=-999999--经度
+			GPSResult.latitude=-999999--纬度
+			GPSResult.altitude=-999999--海拔
+			GPSResult.speed=-999999
+			GPSResult.direction=-999999
+		end
+
 		printTable(GPSResult)
 	end
 end
 
+local function GPGGAParser(report)
+	if(report ~= nil) then
+		print("---GPGGA report:"..report)
+		return
+	end
+end
 
 
 local function GPRMCProcessor(data)
@@ -101,6 +136,46 @@ local function GPRMCProcessor(data)
 end
 
 
+local function GPGGAProcessor(data)
+	--print("recive:"..data)
+	GPGGAReciveBuffer = GPGGAReciveBuffer..data
+	--print("tmp bufer:"..GPGGAReciveBuffer)
+	if(string.len(GPGGAReciveBuffer) > GPGGA_REPORT_MAX_LENGTH) then --删除头上部分报文
+		--print("delete buffer...")
+		GPGGAReciveBuffer = string.sub(GPGGAReciveBuffer,string.len(GPGGAReciveBuffer) - GPGGA_REPORT_MAX_LENGTH)
+	end
+
+	--print("now buffer"..GPGGAReciveBuffer)
+	
+	
+	
+	local startPos = string.find(GPGGAReciveBuffer,GPGGA_START_FLAG)
+	local endPos = nil
+	if(startPos ~= nil) then
+		endPos = string.find(GPGGAReciveBuffer,GPGGA_END_FLAG,startPos)
+	end
+
+	print("GPGGA startPos:"..startPos)
+	print("GPGGA endPos:"..endPos)
+	if(endPos <= startPos) then
+		print("flag invalid.")
+		GPGGAReciveBuffer=""
+		return
+	end
+	if(startPos ~= nil and endPos ~= nil) then
+		local report = string.sub(GPGGAReciveBuffer,startPos+string.len(GPGGA_START_FLAG),endPos-1)
+		GPGGAReciveBuffer = string.sub(GPGGAReciveBuffer,endPos+1)
+		--print("--new buffer:"..GPGGAReciveBuffer)
+		GPGGAParser(report)
+	elseif(startPos ~= nil) then
+		GPGGAReciveBuffer = string.sub(GPGGAReciveBuffer,startPos)
+	elseif(string.len(GPGGAReciveBuffer) > string.len(data)) then
+		GPGGAReciveBuffer = string.sub(GPGGAReciveBuffer,string.len(data))
+	end
+
+end
+
+
 
 
 function M.init()
@@ -115,6 +190,7 @@ function M.init()
 	function(data)
 		--print("receive from uart:", data)
 		GPRMCProcessor(data)
+		GPGGAProcessor(data)
 	end)
 	
 	-- error handler
@@ -122,6 +198,7 @@ function M.init()
 	function(data)
 		print("error from uart:", data)
 		GPRMCReciveBuffer=""
+		GPGGAReciveBuffer=""
 		uart.stop(UART_ID)
 		uart.setup(UART_ID, BAUD, 8, uart.PARITY_NONE, uart.STOPBITS_1, {tx = 16, rx = 17})
 		uart.setmode(UART_ID, uart.MODE_UART)

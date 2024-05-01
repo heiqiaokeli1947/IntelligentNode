@@ -44,7 +44,7 @@ local function read16()
 	i2c.address(I2C_ID, HDC1000_ADDR, i2c.RECEIVER)
 	local ok, ret = pcall(i2c.address, I2C_ID, GY_30_address,i2c.RECEIVER)
 	if ret then
-		print("------------------------BH1750 1 IIC OK.")
+		print("------------------------HDC1000 IIC OK.")
 	else
 		print("************************read16():!!i2c device dI2C_ID not ACK second address operation")
 		hdc1080_init = false
@@ -64,7 +64,7 @@ local function setReadRegister(register)
 	i2c.address(I2C_ID, HDC1000_ADDR, i2c.TRANSMITTER)
 	local ok, ret = pcall(i2c.address, I2C_ID, HDC1000_ADDR, i2c.TRANSMITTER)
 	if ret then
-		print("------------------------BH1750 1 IIC OK.")
+		print("------------------------HDC1000 2 IIC OK.")
 	else
 		print("************************setReadRegister():!!i2c device dI2C_ID not ACK second address operation")
 		hdc1080_init = false
@@ -81,7 +81,7 @@ local function writeConfig(config)
 	--i2c.address(I2C_ID, HDC1000_ADDR, i2c.TRANSMITTER)
 	local ok, ret = pcall(i2c.address, I2C_ID, HDC1000_ADDR, i2c.TRANSMITTER)
 	if ret then
-		print("------------------------BH1750 1 IIC OK.")
+		print("------------------------HDC1000 3 IIC OK.")
 	else
 		print("************************writeConfig():!!i2c device dI2C_ID not ACK second address operation")
 		hdc1080_init = false

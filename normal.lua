@@ -26,44 +26,44 @@ IO_HSPI_MISO=12
 SDA_PIN = 23 -- sda pin, GPIO12
 SCL_PIN = 22 -- scl pin, GPIO14
 
-bh1750 = require("bh1750")
-bh1750.init(SDA_PIN, SCL_PIN)
-print("init BH1750 finish.")
+--bh1750 = require("bh1750")
+--bh1750.init(SDA_PIN, SCL_PIN)
+--print("init BH1750 finish.")
 --bh1750.read(OSS)
 --l = bh1750.getlux()/100
 --print("lux: "..l.." lx")
 
-bh1750_timer=tmr.create()
+--bh1750_timer=tmr.create()
 
-function bh1750Callback()
-
-    l = bh1750.getlux()
-    print("lux: "..l.." lx")
-end
-
-bh1750_timer:register( 5000,tmr.ALARM_AUTO,bh1750Callback)
-bh1750_timer:start()
-
-
-
-HDC1000 = require("HDC1000")
-HDC1000.init(SDA_PIN, SCL_PIN)
+--function bh1750Callback()
+--
+--    l = bh1750.getlux()
+--    print("lux: "..l.." lx")
+--end
+--
+--bh1750_timer:register( 5000,tmr.ALARM_AUTO,bh1750Callback)
+--bh1750_timer:start()
 
 
-hdc1080_timer=tmr.create()
 
-function hdc1080RedCallback()
-    print(string.format("Temperature: %.2f C\nHumidity: %.2f %%", HDC1000.getTemp(), HDC1000.getHumi()))
-end
-
-hdc1080_timer:register( 5000,tmr.ALARM_AUTO,hdc1080RedCallback)
-hdc1080_timer:start()
+--HDC1000 = require("HDC1000")
+--HDC1000.init(SDA_PIN, SCL_PIN)
+--
+--
+--hdc1080_timer=tmr.create()
+--
+--function hdc1080RedCallback()
+--    print(string.format("Temperature: %.2f C\nHumidity: %.2f %%", HDC1000.getTemp(), HDC1000.getHumi()))
+--end
+--
+--hdc1080_timer:register( 5000,tmr.ALARM_AUTO,hdc1080RedCallback)
+--hdc1080_timer:start()
 
 
 
 
 PMS5003I = require("PMS5003I")
---PMS5003I.init(SDA_PIN, SCL_PIN)
+PMS5003I.init(SDA_PIN, SCL_PIN)
 
 
 local ok, ret = pcall(PMS5003I.init, SDA_PIN, SCL_PIN)
@@ -234,7 +234,7 @@ function dataReportTask()
 
 		local temp = tonumber(HDC1000.getTemp())
 		local humi = tonumber(HDC1000.getHumi())
-		local lumination = tonumber(bh1750.getlux())
+		--local lumination = tonumber(bh1750.getlux())
 		sec, usec = time.get()
 		
 		local dataTmp = HttpResult.init_report_data( sysCfg )
@@ -248,7 +248,7 @@ function dataReportTask()
 				dataTmp["co"]=0
 				dataTmp["temperature"]=temp
 				dataTmp["humidity"]=humi
-				dataTmp["lumination"]=lumination
+				--dataTmp["lumination"]=lumination
 				dataTmp["timestamp"]=tonumber(sec)
 				local ok, ret = pcall(sjson.encode, dataTmp)
 				if ok then
